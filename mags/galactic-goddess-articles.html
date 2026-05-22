@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Galactic Goddess — Issue 444 — June 2222</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital@0;1&family=VT323&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --hot-pink:#ff2d9b;
+  --neon-cyan:#00f0ff;
+  --electric-purple:#9b30ff;
+  --gold:#ffc847;
+  --lime:#a8ff3e;
+  --bg:#06020f;
+  --text:#f5eeff;
+  --muted:#8878aa;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* ── STARFIELD BG ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 70%, rgba(255,255,255,0.5) 0%, transparent 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── HEADER ── */
+header{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:3.5rem 2rem 2.5rem;
+  background:linear-gradient(180deg, rgba(155,48,255,0.18) 0%, transparent 100%);
+  border-bottom:1px solid rgba(155,48,255,0.35);
+}
+
+.holo-bar{
+  font-family:'Space Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+  background:linear-gradient(90deg, var(--hot-pink), var(--neon-cyan), var(--electric-purple), var(--gold), var(--hot-pink));
+  background-size:300% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmer 4s linear infinite;
+}
+
+@keyframes shimmer{to{background-position:300% center;}}
+
+.mag-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,9vw,7rem);
+  letter-spacing:0.08em;
+  line-height:0.85;
+  background:linear-gradient(135deg, var(--hot-pink) 0%, var(--electric-purple) 40%, var(--neon-cyan) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.mag-sub{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:clamp(1.4rem,3vw,2.2rem);
+  color:var(--gold);
+  margin-top:0.3rem;
+  letter-spacing:0.08em;
+}
+
+.mag-tag{
+  font-family:'Space Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.25em;
+  color:var(--muted);
+  margin-top:1rem;
+}
+
+.holo-line{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  margin-top:1.5rem;
+}
+.holo-line::before,.holo-line::after{
+  content:'';flex:1;max-width:100px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--hot-pink));
+}
+.holo-line::after{background:linear-gradient(90deg,var(--neon-cyan),transparent);}
+.holo-icon{font-size:1rem;color:var(--gold);}
+
+/* ── MAIN GRID ── */
+main{
+  position:relative;
+  z-index:1;
+  max-width:1080px;
+  margin:0 auto;
+  padding:3rem 1.5rem 5rem;
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:1.75rem;
+}
+
+/* ── BASE CARD ── */
+.card{
+  padding:2rem 1.75rem;
+  position:relative;
+  overflow:hidden;
+  border:1px solid transparent;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{transform:translateY(-2px);}
+
+/* corner marks */
+.card::before,.card::after{
+  content:'+';
+  position:absolute;
+  font-family:'Space Mono',monospace;
+  font-size:0.8rem;
+  opacity:0.4;
+}
+.card::before{top:0.4rem;left:0.6rem;}
+.card::after{bottom:0.4rem;right:0.6rem;}
+
+/* ── CARD THEMES ── */
+
+/* DEEP PINK */
+.t-pink{
+  background:linear-gradient(135deg,#1a0020 0%,#2a0035 100%);
+  border-color:rgba(255,45,155,0.45);
+  box-shadow:0 0 30px rgba(255,45,155,0.08), inset 0 0 40px rgba(255,45,155,0.04);
+}
+.t-pink::before,.t-pink::after{color:var(--hot-pink);}
+.t-pink .tag{color:var(--hot-pink);}
+.t-pink h2{color:#ff80c8;}
+.t-pink p strong{color:#ff80c8;}
+.t-pink p:first-of-type::first-letter{color:var(--hot-pink);}
+.t-pink .pq{border-color:var(--hot-pink);color:#ff80c8;}
+
+/* DEEP CYAN */
+.t-cyan{
+  background:linear-gradient(135deg,#001a22 0%,#002535 100%);
+  border-color:rgba(0,240,255,0.35);
+  box-shadow:0 0 30px rgba(0,240,255,0.07), inset 0 0 40px rgba(0,240,255,0.03);
+}
+.t-cyan::before,.t-cyan::after{color:var(--neon-cyan);}
+.t-cyan .tag{color:var(--neon-cyan);}
+.t-cyan h2{color:#80f8ff;}
+.t-cyan p strong{color:#80f8ff;}
+.t-cyan p:first-of-type::first-letter{color:var(--neon-cyan);}
+.t-cyan .pq{border-color:var(--neon-cyan);color:#80f8ff;}
+
+/* DEEP PURPLE */
+.t-purple{
+  background:linear-gradient(135deg,#0e0020 0%,#180030 100%);
+  border-color:rgba(155,48,255,0.4);
+  box-shadow:0 0 30px rgba(155,48,255,0.08), inset 0 0 40px rgba(155,48,255,0.04);
+}
+.t-purple::before,.t-purple::after{color:var(--electric-purple);}
+.t-purple .tag{color:var(--electric-purple);}
+.t-purple h2{color:#c880ff;}
+.t-purple p strong{color:#c880ff;}
+.t-purple p:first-of-type::first-letter{color:var(--electric-purple);}
+.t-purple .pq{border-color:var(--electric-purple);color:#c880ff;}
+
+/* DEEP GOLD */
+.t-gold{
+  background:linear-gradient(135deg,#160e00 0%,#241500 100%);
+  border-color:rgba(255,200,71,0.35);
+  box-shadow:0 0 30px rgba(255,200,71,0.07), inset 0 0 40px rgba(255,200,71,0.03);
+}
+.t-gold::before,.t-gold::after{color:var(--gold);}
+.t-gold .tag{color:var(--gold);}
+.t-gold h2{color:var(--gold);}
+.t-gold p strong{color:var(--gold);}
+.t-gold p:first-of-type::first-letter{color:var(--gold);}
+.t-gold .pq{border-color:var(--gold);color:var(--gold);}
+
+/* HOLO — rainbow border card */
+.t-holo{
+  background:linear-gradient(135deg,#0d0020 0%,#001525 50%,#0d0020 100%);
+  border:1px solid transparent;
+  background-clip:padding-box;
+  box-shadow:0 0 0 1px rgba(255,45,155,0.3), 0 0 0 2px rgba(0,240,255,0.15), 0 0 40px rgba(155,48,255,0.1);
+}
+.t-holo::before,.t-holo::after{color:var(--gold);}
+.t-holo .tag{
+  background:linear-gradient(90deg,var(--hot-pink),var(--neon-cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.t-holo h2{
+  background:linear-gradient(135deg,var(--hot-pink),var(--electric-purple),var(--neon-cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.t-holo p strong{color:var(--gold);}
+.t-holo p:first-of-type::first-letter{color:var(--hot-pink);}
+.t-holo .pq{border-image:linear-gradient(180deg,var(--hot-pink),var(--neon-cyan)) 1;color:var(--gold);}
+
+/* LIME accent */
+.t-lime{
+  background:linear-gradient(135deg,#060f00 0%,#0a1800 100%);
+  border-color:rgba(168,255,62,0.3);
+  box-shadow:0 0 30px rgba(168,255,62,0.06), inset 0 0 40px rgba(168,255,62,0.02);
+}
+.t-lime::before,.t-lime::after{color:var(--lime);}
+.t-lime .tag{color:var(--lime);}
+.t-lime h2{color:#c8ff80;}
+.t-lime p strong{color:#c8ff80;}
+.t-lime p:first-of-type::first-letter{color:var(--lime);}
+.t-lime .pq{border-color:var(--lime);color:#c8ff80;}
+
+/* ── Y2K WINDOWS CARD ── */
+.t-win{
+  background:#c0c0c0;
+  border:2px solid #fff;
+  box-shadow:inset -2px -2px 0 #808080, inset 2px 2px 0 #fff, 4px 4px 0 rgba(0,0,0,0.4);
+  color:#000;
+  padding:0;
+  font-family:'Space Mono',monospace;
+}
+.t-win::before,.t-win::after{display:none;}
+.win-titlebar{
+  background:linear-gradient(90deg,#0000aa,#1084d0);
+  color:#fff;
+  font-family:'Space Mono',monospace;
+  font-size:0.72rem;
+  padding:0.3rem 0.6rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.win-buttons span{
+  display:inline-block;
+  width:0.9rem;height:0.9rem;
+  background:#c0c0c0;
+  border:1px solid #000;
+  margin-left:2px;
+  font-size:0.55rem;
+  text-align:center;
+  line-height:0.9rem;
+  color:#000;
+}
+.win-body{padding:1.25rem 1.5rem 1.5rem;}
+.win-body .tag{
+  font-family:'Space Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:#0000aa;margin-bottom:0.5rem;display:block;
+}
+.win-body h2{
+  font-family:'Space Mono',monospace;
+  font-size:1.2rem;font-weight:700;
+  color:#0000aa;margin-bottom:0.9rem;line-height:1.3;
+}
+.win-body p{
+  font-family:'Space Mono',monospace;
+  font-size:0.75rem;line-height:1.7;
+  color:#111;
+}
+.win-body p strong{color:#0000aa;font-weight:700;}
+.win-body p:first-of-type::first-letter{
+  float:none;font-size:inherit;line-height:inherit;
+  margin:0;font-weight:inherit;color:inherit;
+}
+.progress-wrap{margin:1rem 0 0.4rem;}
+.progress-label{font-family:'Space Mono',monospace;font-size:0.65rem;color:#0000aa;margin-bottom:0.3rem;}
+.progress-bar{
+  height:1.1rem;
+  background:#fff;
+  border:2px inset #808080;
+  position:relative;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  width:100%;
+  background:repeating-linear-gradient(90deg,#0000aa 0px,#0000aa 10px,#1084d0 10px,#1084d0 20px);
+}
+.win-popup{
+  margin-top:1rem;
+  background:#c0c0c0;
+  border:2px solid #fff;
+  box-shadow:inset -2px -2px 0 #808080,inset 2px 2px 0 #fff;
+  padding:0;
+}
+.win-popup-title{
+  background:linear-gradient(90deg,#0000aa,#1084d0);
+  color:#fff;font-family:'Space Mono',monospace;
+  font-size:0.65rem;padding:0.2rem 0.5rem;
+  display:flex;justify-content:space-between;
+}
+.win-popup-body{
+  padding:0.75rem 1rem;
+  font-family:'Space Mono',monospace;
+  font-size:0.72rem;
+  color:#000;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.win-popup-body .heart{color:var(--hot-pink);font-size:1.1rem;}
+.win-ok{
+  display:block;margin:0.5rem auto 0;
+  font-family:'Space Mono',monospace;font-size:0.72rem;
+  background:#c0c0c0;border:2px solid #fff;
+  box-shadow:inset -1px -1px 0 #808080,inset 1px 1px 0 #fff;
+  padding:0.2rem 1.5rem;cursor:pointer;
+}
+
+/* ── SHARED TYPOGRAPHY ── */
+.tag{
+  font-family:'Space Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.3em;
+  text-transform:uppercase;
+  margin-bottom:0.65rem;display:block;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,2.5vw,2.1rem);
+  font-weight:900;line-height:1.1;
+  margin-bottom:1.1rem;
+}
+h2 em{
+  font-style:italic;font-weight:400;
+  display:block;font-size:0.7em;
+  opacity:0.75;margin-top:0.2em;
+}
+
+p{font-size:1.12rem;line-height:1.85;color:#ccc0e8;position:relative;z-index:1;}
+p+p{margin-top:0.9rem;}
+
+.card p:first-of-type::first-letter{
+  font-family:'Playfair Display',serif;
+  float:left;font-size:3.8rem;line-height:0.75;
+  margin:0.1rem 0.5rem 0 0;font-weight:900;
+}
+
+.pq{
+  margin:1.25rem 0;
+  padding:0.5rem 0 0.5rem 1.25rem;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1.25rem;line-height:1.5;
+  position:relative;z-index:1;
+  border-left:3px solid;
+}
+
+/* ── GRID SPANS ── */
+.c12{grid-column:span 12;} .c8{grid-column:span 8;}
+.c7{grid-column:span 7;}   .c6{grid-column:span 6;}
+.c5{grid-column:span 5;}   .c4{grid-column:span 4;}
+@media(max-width:720px){.c12,.c8,.c7,.c6,.c5,.c4{grid-column:span 12;}}
+
+/* ── WATERMARK DIVIDER ── */
+.wm{
+  grid-column:span 12;display:flex;
+  align-items:center;gap:1.5rem;margin:0.25rem 0;
+}
+.wm::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--hot-pink),transparent);}
+.wm::after{display:none;}
+.wm span{
+  font-family:'Space Mono',monospace;font-size:0.58rem;
+  letter-spacing:0.22em;color:var(--muted);white-space:nowrap;
+}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  text-align:center;padding:2rem;
+  border-top:1px solid rgba(155,48,255,0.3);
+  font-family:'Space Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.2em;color:var(--muted);
+}
+footer p+p{margin-top:0.4rem;}
+footer .glow{
+  background:linear-gradient(90deg,var(--hot-pink),var(--neon-cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <p class="holo-bar">Cosmic Energy &nbsp;·&nbsp; Higher Consciousness &nbsp;·&nbsp; Digital Dreams &nbsp;·&nbsp; Y2K Edition</p>
+  <div class="mag-title">Galactic</div>
+  <div class="mag-sub">Goddess</div>
+  <p class="mag-tag">Issue 444 &nbsp;·&nbsp; June 2222 &nbsp;·&nbsp; Awaken · Align · Ascend</p>
+  <div class="holo-line"><span class="holo-icon">✦</span></div>
+</header>
+
+<!-- ARTICLES -->
+<main>
+
+  <!-- 1: YOU ARE STARLIGHT — wide pink -->
+  <article class="card t-pink c7">
+    <span class="tag">Cosmic Identity</span>
+    <h2>You Are Starlight<em>Remember Who You Are</em></h2>
+    <p>Before you were a name, a body, a birthday, a résumé — you were <strong>light</strong>. Specifically, you were the kind of light that travels across galaxies without asking permission, the kind that bends around planets and still arrives exactly where it is needed. That is what you are made of. Not metaphorically. Literally. Every atom in your body was forged inside a star that exploded millions of years ago so that you could exist right now, in this body, reading these words.</p>
+    <div class="pq">"You did not come from the Earth. You came through it. Your origin is the stars and your destination is the same."</div>
+    <p>Forgetting this is the only real amnesia. And remembering — truly remembering — is not a spiritual exercise. It is a <strong>homecoming</strong>. The light inside you is not trying to be seen. It is trying to remember it was never dark.</p>
+  </article>
+
+  <!-- 2: COSMIC BEAUTY — narrow cyan -->
+  <article class="card t-cyan c5">
+    <span class="tag">Luminous Living</span>
+    <h2>Cosmic Beauty<em>Glow From Within</em></h2>
+    <p>There is a beauty that no product line can manufacture and no filter can replicate: the glow of a woman who has stopped dimming herself for other people's comfort. It moves ahead of her into every room. It does not need lighting. It <strong>is</strong> the lighting.</p>
+    <p>Cosmic beauty is not the absence of imperfection. It is the presence of full, unapologetic aliveness. When you align with your own frequency — when you eat, rest, move, speak, and create in accordance with your deepest self — your cells literally vibrate differently. People feel it before they see it. That is not magic. That is <strong>physics</strong>.</p>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; Awaken · Align · Ascend &nbsp; ✦</span></div>
+
+  <!-- 3: UFO FILES — gold narrow -->
+  <article class="card t-gold c4">
+    <span class="tag">UFO Files</span>
+    <h2>They Are Already Watching</h2>
+    <p>Here is the most unsettling thing about the UFO question — not that we might be alone in the universe, but that we almost certainly are not. Declassified government files, credible military testimonies, and centuries of cross-cultural mythology all point in the same direction: we have never been alone, and something has been paying very close attention.</p>
+    <p>The real question is not whether they exist. The real question is: <strong>what do they see when they look at us?</strong> And the more important one — are we becoming worthy of the conversation?</p>
+  </article>
+
+  <!-- 4: RAISE YOUR FREQUENCY — purple wide -->
+  <article class="card t-purple c8">
+    <span class="tag">Frequency Work</span>
+    <h2>Raise Your Frequency<em>Shift · Align · Ascend</em></h2>
+    <p>Everything in the universe — every thought, every emotion, every physical object — is vibrating at a specific frequency. This is not a spiritual belief. It is a measurable physical fact. What the mystics understood and quantum physicists are rediscovering is that <strong>consciousness itself is a frequency</strong>, and like any frequency, it can be tuned.</p>
+    <div class="pq">"You are not stuck. You are simply tuned to an old station. Reach for the dial."</div>
+    <p>Raising your frequency is not about toxic positivity or pretending hard things are easy. It is about <strong>shifting</strong> — deliberately moving your attention, your breath, your body, your environment — toward resonance rather than resistance. Align with what is true for you at the deepest level. Then watch how effortlessly the universe meets you there. Ascension is not a destination. It is a direction.</p>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; You Are the Universe · I Know &nbsp; ✦</span></div>
+
+  <!-- 5: DIVINE FEMININE — holo full width -->
+  <article class="card t-holo c12">
+    <span class="tag">Sacred Power · Cover Feature</span>
+    <h2>Divine Feminine: Activate Your Cosmic Power</h2>
+    <p>The divine feminine was never lost. It was suppressed, coded out of history books, rebranded as weakness, pathologized as too much. But it was always here — in the tides, in the moon, in the part of you that <strong>knows before it understands</strong>, that feels the truth before anyone has named it, that grieves fully and rises anyway. The divine feminine is the original intelligence. Not the soft counterpart to masculine power — the foundational field from which all creation emerges.</p>
+    <p>To activate your cosmic power is not to become someone new. It is to stop apologizing for who you already are. It is to let your intuition lead when your logic is exhausted. It is to create from fullness rather than fear, to nurture without depleting, to hold boundaries not as walls but as the sacred edges of a self worth protecting. The goddess was never a myth. She was <strong>a frequency that the world temporarily forgot how to hold</strong>. She is returning now — in you, through you, as you.</p>
+  </article>
+
+  <!-- 6: NEW EARTH LOADING — lime -->
+  <article class="card t-lime c6">
+    <span class="tag">Collective Shift</span>
+    <h2>New Earth Loading…<em>The Future Is Divine</em></h2>
+    <p>Something is shifting beneath the surface of everything — in the collective dream, in the conversations people are having at 3am, in the sudden, simultaneous awakening of millions of humans who never met and yet all arrived at the same realisation in the same breath. A new frequency is <strong>coming online</strong>.</p>
+    <p>The New Earth is not a place we are going. It is a state of being we are collectively choosing — a civilisation built not on domination but on coherence, not on extraction but on reciprocity, not on fear but on the radical, revolutionary act of <strong>love as a governing principle</strong>. The loading bar is at 100%. The only question is whether you are ready to press enter.</p>
+  </article>
+
+  <!-- 7: 5D & BEYOND — cyan -->
+  <article class="card t-cyan c6">
+    <span class="tag">Quantum Consciousness</span>
+    <h2>5D &amp; Beyond<em>Quantum Leaps Into the New Earth</em></h2>
+    <p>The third dimension is not disappearing. It is being <strong>transcended</strong>. The shift to fifth-dimensional consciousness is not about leaving the physical world behind — it is about bringing a new quality of awareness to every moment within it. In 5D, time is not a prison. Separation is understood as illusion. Synchronicity replaces coincidence as the primary language of reality.</p>
+    <div class="pq">"In 5D, you do not chase your desires. You become so aligned that they find you."</div>
+    <p>A quantum leap is not a gradual climb. It is a non-linear jump — a moment where the caterpillar simply stops being a caterpillar and the butterfly begins. You have already made this leap more times than you know. The new earth is asking you to make it <strong>consciously</strong>.</p>
+  </article>
+
+  <!-- 8: AWAKENING.EXE — Windows Y2K card -->
+  <article class="card t-win c12">
+    <div class="win-titlebar">
+      <span>awakening.exe</span>
+      <div class="win-buttons">
+        <span>_</span><span>□</span><span>✕</span>
+      </div>
+    </div>
+    <div class="win-body">
+      <span class="tag">System Message</span>
+      <h2>YOU ARE INFINITE</h2>
+      <p>This is not a metaphor. This is not a motivational poster. This is a <strong>system notification</strong> from the deepest layer of your operating system — the one that was running before your personality installed itself, before your wounds wrote their scripts, before the world taught you to take up less space.</p>
+      <p>You are not a user of this universe. You are a <strong>co-developer</strong>. Every thought you think is a line of code. Every belief you hold is a function running in the background, shaping what you perceive as possible. The question is not whether you have the power to change your reality. The question is whether you are ready to take responsibility for the fact that you already are.</p>
+      <div class="progress-wrap">
+        <div class="progress-label">ASCENSION IN PROGRESS...</div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div style="font-family:'Space Mono',monospace;font-size:0.65rem;text-align:right;margin-top:0.2rem;">100%</div>
+      </div>
+      <div class="win-popup">
+        <div class="win-popup-title">
+          <span>Reminder</span>
+          <span>✕</span>
+        </div>
+        <div class="win-popup-body">
+          <span class="heart">♥</span>
+          <span>YOU ARE THE UNIVERSE.<br>You always were.</span>
+        </div>
+        <button class="win-ok">I KNOW</button>
+      </div>
+    </div>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; Celestial Fashion · Crystal Tech · Lunar Beauty · Dream Journaling &nbsp; ✦</span></div>
+
+  <!-- CELESTIAL FASHION — holo full width -->
+  <article class="card t-holo c12">
+    <span class="tag">Style &amp; Sovereignty</span>
+    <h2>Celestial Fashion<em>Dressing as a Cosmic Act</em></h2>
+    <p>What you put on your body in the morning is not a trivial decision. It is a declaration. Every colour carries a frequency — red activates and grounds, violet opens the crown, gold calls in abundance, black absorbs and protects. The ancients understood this. Priests and priestesses did not choose their garments randomly. They <strong>wore intention</strong>, and so can you.</p>
+    <p>Celestial fashion is not about following trends from the stars — it is about letting your inner cosmos express itself outward. It is the moment you stop dressing for other people's approval and start dressing as a ritual. Ask yourself before you get dressed: what energy am I calling in today? What do I want to embody? Layer textures that feel cosmic — iridescent fabrics that shift like a nebula, deep velvets that absorb light like space itself, metallics that reflect the stars.</p>
+    <div class="pq">"Style is the most visible form of self-knowledge. When you know who you are, getting dressed becomes a ceremony."</div>
+    <p>On new moons, reach for black and navy — beginnings, mystery, potential. On full moons, white, silver, gold — completion, illumination, power. Wear your birthstone. Let the moon phase guide your palette. This is not superstition. This is <strong>chromotherapy dressed up as fashion</strong>, and it has been working for millennia.</p>
+  </article>
+
+  <!-- CRYSTAL TECH — purple + LUNAR BEAUTY — pink -->
+  <article class="card t-purple c6">
+    <span class="tag">Ancient Technology</span>
+    <h2>Crystal Tech<em>The Original Smart Device</em></h2>
+    <p>Before silicon, there was <strong>quartz</strong>. Here is the part they left out of your tech history class: quartz crystal is piezoelectric, meaning it generates an electric charge under pressure and oscillates at a precise, stable frequency. This is why it is still used in every watch, every computer, every piece of modern electronics on the planet. The ancients were not primitive for working with crystals. They were <strong>early adopters</strong>.</p>
+    <p>Place amethyst near your workspace to calm electromagnetic interference. Keep black tourmaline by your router to transmute the energetic static of constant connectivity. Sleep with selenite nearby to keep your auric field clear while your body processes the day's digital overload.</p>
+    <div class="pq">"Your body is a receiver. Crystals are the antennae. Choose them wisely."</div>
+    <p>The grid is not just the internet. It is the crystalline matrix of the Earth itself — and you can tap into it any time you hold a stone and <strong>remember that you are the technology</strong>.</p>
+  </article>
+
+  <article class="card t-pink c6">
+    <span class="tag">Moon Rituals</span>
+    <h2>Lunar Beauty<em>Glow on Her Schedule</em></h2>
+    <p>The moon governs the tides, the seasons, the menstrual cycle, the growth of plants. It is the single most powerful rhythmic force in our immediate cosmic neighbourhood — and most of us apply our skincare completely independently of it. That changes now.</p>
+    <p>At the <strong>new moon</strong>, your skin is most receptive — begin new routines, introduce serums, start treatments you want to take hold. At the <strong>full moon</strong>, lymphatic drainage and facial massage are most effective. Waxing moon: build, nourish, hydrate, add. Waning moon: release, detox, exfoliate, shed.</p>
+    <div class="pq">"She does not fight the moon's rhythm. She moves with it — and glows accordingly."</div>
+    <p>The moon has been running this cycle for four billion years. Your skin already knows it. All you have to do is <strong>listen</strong>.</p>
+  </article>
+
+  <!-- DREAM JOURNALING — cyan + MANIFESTATION — gold -->
+  <article class="card t-cyan c7">
+    <span class="tag">Inner Worlds</span>
+    <h2>Dream Journaling<em>Dispatches From Your Higher Self</em></h2>
+    <p>Every night your subconscious mind runs a full cinema program — complex narratives, symbolic imagery, emotional processing, and sometimes direct messages from the part of you that exists outside of linear time. Dreams are not noise. They are <strong>signal</strong>. The question is whether you are paying attention.</p>
+    <p>Keep a journal on your nightstand — physical, not digital, because screens pull you out of the hypnagogic state where dream memory lives. The moment you wake, before you move, write. Write whatever fragments remain: colours, feelings, symbols, people, places. Do not interpret yet. Just <strong>capture</strong>.</p>
+    <div class="pq">"Your dreams are not random. They are the most honest conversation you will ever have with yourself."</div>
+    <p>Over time, patterns emerge. Recurring symbols become a personal vocabulary — your psyche's private language developed specifically for you. The journal is not the interpretation. The journal is the <strong>relationship</strong>. And like all relationships, it deepens with consistency and the willingness to show up even when it makes no sense. Especially then.</p>
+  </article>
+
+  <article class="card t-gold c5">
+    <span class="tag">Manifestation</span>
+    <h2>&amp; More:<em>The Art of Becoming What You Believe</em></h2>
+    <p>Manifestation has been misrepresented as wishful thinking. It is not. At its core it is the disciplined practice of <strong>coherence</strong> — bringing your thoughts, emotions, beliefs, and actions into alignment with the reality you intend to inhabit. When those align, the universe has very little choice but to respond.</p>
+    <p>The reason most manifestation attempts fail is not lack of desire. It is the quiet belief running beneath the desire that it is not really possible, that you are not really worthy. Manifestation is not about fooling the universe. It is about <strong>healing the gap</strong> between what you ask for and what you believe you deserve.</p>
+    <p>Start there. Not with the vision board. Not with the affirmations. Start with the belief — excavate it, examine it, rewrite the ones that were never yours. Then watch what happens when you ask for something you genuinely, cellularly believe is already on its way. That is not magic. That is <strong>alignment</strong>.</p>
+  </article>
+
+</main>
+
+<footer>
+  <p><span class="glow">Galactic Goddess Magazine</span> &nbsp;·&nbsp; Issue 444 &nbsp;·&nbsp; June 2222</p>
+  <p>Celestial Fashion · Crystal Tech · Lunar Beauty · Dream Journaling · Manifestation · &amp; More</p>
+</footer>
+
+</body>
+</html>

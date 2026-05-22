@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Magick Mica TV — Sacred Mini Article Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --bg:#05030e;
+  --text:#f5f0ff;
+  --muted:#6a6080;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* nebula bg */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(155,111,255,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(255,110,180,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(0,212,200,0.04) 0%,transparent 60%),
+    radial-gradient(1px 1px at 8%  15%, rgba(255,255,255,0.7) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 72%, rgba(200,170,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 38% 28%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 85%, rgba(0,240,255,0.5)  0%,transparent 100%),
+    radial-gradient(1px 1px at 68% 18%, rgba(255,200,71,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 80% 55%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 92% 35%, rgba(200,170,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 14% 45%, rgba(255,110,180,0.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 44% 62%, rgba(255,255,255,0.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 73% 90%, rgba(255,200,71,0.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 30% 10%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 62% 42%, rgba(0,240,255,0.4) 0%,transparent 100%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── HEADER ── */
+header{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:5rem 2rem 3.5rem;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.collection-label{
+  font-family:'Space Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.5em;text-transform:uppercase;
+  background:linear-gradient(90deg,#ff6eb4,#9b6fff,#00d4c8,#ffc847,#4a9eff,#ff6eb4);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 6s linear infinite;
+  margin-bottom:1.5rem;display:block;
+}
+@keyframes shimmer{to{background-position:300% center;}}
+
+.collection-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,6vw,5.5rem);
+  font-weight:900;line-height:0.88;
+  background:linear-gradient(90deg,#ff6eb4,#9b6fff,#00d4c8,#ffc847,#4a9eff,#ff6eb4);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 6s linear infinite;
+}
+.collection-sub{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:clamp(1.4rem,3.5vw,2.8rem);
+  background:linear-gradient(135deg,#00d4c8,#4a9eff,#9b6fff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-top:0.4rem;letter-spacing:0.04em;
+}
+
+.collection-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;line-height:1.75;font-style:italic;
+  color:rgba(245,240,255,0.55);
+  max-width:540px;margin:2rem auto 0;
+}
+
+.divider{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:2.5rem;}
+.divider::before{content:'';flex:1;max-width:130px;height:1px;background:linear-gradient(90deg,transparent,rgba(155,111,255,0.5));}
+.divider::after {content:'';flex:1;max-width:130px;height:1px;background:linear-gradient(90deg,rgba(255,110,180,0.5),transparent);}
+.divider span{font-size:0.85rem;opacity:0.55;}
+
+/* ── STRIP ── */
+.strip{
+  position:relative;z-index:1;
+  display:flex;justify-content:center;gap:4rem;
+  padding:1.75rem 2rem;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.strip-item{text-align:center;}
+.strip-num{
+  font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1;
+  background:linear-gradient(135deg,#c9aaff,#ffb3d9);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.strip-label{
+  font-family:'Space Mono',monospace;font-size:0.53rem;
+  letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;
+}
+
+/* ── SECTION LABEL ── */
+.section-label{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:3.5rem 2rem 1.5rem;
+}
+.section-label h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-style:italic;font-weight:400;
+  color:rgba(245,240,255,0.4);letter-spacing:0.1em;
+}
+
+/* ── ISSUE SHELF ── */
+.shelf{
+  position:relative;z-index:1;
+  max-width:1160px;margin:0 auto;
+  padding:0 1.5rem 5rem;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+  align-items:start;
+}
+@media(max-width:900px){.shelf{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.shelf{grid-template-columns:1fr;}}
+
+/* ── ISSUE CARD ── */
+.issue{
+  display:block;text-decoration:none;color:inherit;
+  position:relative;
+  transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.issue:hover{transform:translateY(-8px) rotate(-0.5deg);}
+
+/* cover image */
+.cover-wrap{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 8px 40px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  transition:box-shadow 0.4s;
+}
+.issue:hover .cover-wrap{box-shadow:0 20px 60px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.5);}
+
+.cover-img{
+  display:block;width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  transition:transform 0.5s;
+}
+.issue:hover .cover-img{transform:scale(1.03);}
+
+/* colour overlay on hover */
+.cover-overlay{
+  position:absolute;inset:0;
+  opacity:0;transition:opacity 0.4s;
+  display:flex;align-items:flex-end;
+  padding:1.25rem;
+}
+.issue:hover .cover-overlay{opacity:1;}
+.overlay-btn{
+  font-family:'Space Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;
+  padding:0.5rem 1rem;
+  border:1px solid rgba(255,255,255,0.6);
+  color:#fff;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(4px);
+  width:100%;text-align:center;
+}
+
+/* colour accent bar at top of cover */
+.cover-bar{height:3px;width:100%;}
+
+/* info below cover */
+.issue-info{
+  padding:0.9rem 0.25rem 0;
+}
+.issue-num{
+  font-family:'Space Mono',monospace;font-size:0.52rem;
+  letter-spacing:0.25em;text-transform:uppercase;
+  margin-bottom:0.35rem;display:block;
+}
+.issue-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:900;line-height:1.1;
+  margin-bottom:0.15rem;
+}
+.issue-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:0.85rem;
+  opacity:0.55;margin-bottom:0.65rem;
+}
+.issue-topics{
+  display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.75rem;
+}
+.topic-pill{
+  font-family:'Space Mono',monospace;font-size:0.45rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.15rem 0.45rem;border:1px solid;
+  opacity:0.5;
+}
+.read-link{
+  font-family:'Space Mono',monospace;font-size:0.55rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:0.4rem;
+  opacity:0.7;transition:opacity 0.2s;
+  text-decoration:none;color:inherit;
+}
+.issue:hover .read-link{opacity:1;}
+.read-link::after{content:'→';}
+
+/* ── PER-ISSUE COLOURS ── */
+
+/* Cleopatra */
+.i-cleo .cover-bar{background:linear-gradient(90deg,#c9a84c,#ff2d78);}
+.i-cleo .cover-wrap{box-shadow:0 8px 40px rgba(201,168,76,0.2), 0 2px 8px rgba(0,0,0,0.5);}
+.i-cleo:hover .cover-wrap{box-shadow:0 20px 60px rgba(201,168,76,0.35), 0 4px 16px rgba(0,0,0,0.5);}
+.i-cleo .cover-overlay{background:linear-gradient(to top,rgba(10,5,0,0.85),transparent);}
+.i-cleo .issue-num{color:#c9a84c;}
+.i-cleo .issue-title{
+  background:linear-gradient(135deg,#f0d080,#c9a84c);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.i-cleo .topic-pill{color:#c9a84c;border-color:rgba(201,168,76,0.35);}
+.i-cleo .read-link{color:#c9a84c;}
+
+/* Pyramid */
+.i-pyramid .cover-bar{background:linear-gradient(90deg,#ff9500,#9b30ff);}
+.i-pyramid .cover-wrap{box-shadow:0 8px 40px rgba(255,149,0,0.18), 0 2px 8px rgba(0,0,0,0.5);}
+.i-pyramid:hover .cover-wrap{box-shadow:0 20px 60px rgba(255,149,0,0.32), 0 4px 16px rgba(0,0,0,0.5);}
+.i-pyramid .cover-overlay{background:linear-gradient(to top,rgba(8,3,0,0.85),transparent);}
+.i-pyramid .issue-num{color:#ff9500;}
+.i-pyramid .issue-title{
+  background:linear-gradient(135deg,#ffd060,#ff9500);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.i-pyramid .topic-pill{color:#ff9500;border-color:rgba(255,149,0,0.35);}
+.i-pyramid .read-link{color:#ff9500;}
+
+/* Galactic */
+.i-galactic .cover-bar{background:linear-gradient(90deg,#ff2d9b,#00f0ff);}
+.i-galactic .cover-wrap{box-shadow:0 8px 40px rgba(255,45,155,0.18), 0 2px 8px rgba(0,0,0,0.5);}
+.i-galactic:hover .cover-wrap{box-shadow:0 20px 60px rgba(255,45,155,0.32), 0 4px 16px rgba(0,0,0,0.5);}
+.i-galactic .cover-overlay{background:linear-gradient(to top,rgba(6,2,15,0.85),transparent);}
+.i-galactic .issue-num{color:#ff2d9b;}
+.i-galactic .issue-title{
+  background:linear-gradient(135deg,#ff80c8,#ff2d9b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.i-galactic .topic-pill{color:#ff2d9b;border-color:rgba(255,45,155,0.35);}
+.i-galactic .read-link{color:#ff2d9b;}
+
+/* Luminous */
+.i-luminous .cover-bar{background:linear-gradient(90deg,#9b6fff,#ff6eb4);}
+.i-luminous .cover-wrap{box-shadow:0 8px 40px rgba(155,111,255,0.2), 0 2px 8px rgba(0,0,0,0.5);}
+.i-luminous:hover .cover-wrap{box-shadow:0 20px 60px rgba(155,111,255,0.35), 0 4px 16px rgba(0,0,0,0.5);}
+.i-luminous .cover-overlay{background:linear-gradient(to top,rgba(7,4,15,0.85),transparent);}
+.i-luminous .issue-num{color:#9b6fff;}
+.i-luminous .issue-title{
+  background:linear-gradient(135deg,#c9aaff,#9b6fff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.i-luminous .topic-pill{color:#9b6fff;border-color:rgba(155,111,255,0.35);}
+.i-luminous .read-link{color:#9b6fff;}
+
+/* ── COMING SOON ── */
+.coming{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:3rem 2rem 4rem;
+  margin:0 auto 0;
+  max-width:1160px;
+}
+.coming p{
+  font-family:'Space Mono',monospace;font-size:0.6rem;
+  letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:0.6rem;
+}
+.coming h3{
+  font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;
+  background:linear-gradient(90deg,rgba(245,240,255,0.25),rgba(245,240,255,0.6),rgba(245,240,255,0.25));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  text-align:center;padding:2.5rem 2rem;
+  border-top:1px solid rgba(255,255,255,0.04);
+  font-family:'Space Mono',monospace;font-size:0.57rem;
+  letter-spacing:0.2em;color:var(--muted);
+}
+footer p+p{margin-top:0.5rem;}
+.wordmark{
+  font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;font-weight:700;
+  background:linear-gradient(90deg,#c9aaff,#ffb3d9,#00d4c8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;margin-bottom:1.1rem;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <span class="collection-label">Magick Mica TV · Sacred Mini Articles · Digital Collection</span>
+  <div class="collection-title">Magick Mica TV</div>
+  <div class="collection-sub">presents</div>
+  <p class="collection-desc">Four issues. Four frequencies. One awakening. Mini articles exploring ancient wisdom, divine feminine power, and the luminous future we are all building together.</p>
+  <div class="divider"><span>✦</span></div>
+</header>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item">
+    <div class="strip-num">4</div>
+    <div class="strip-label">Issues</div>
+  </div>
+  <div class="strip-item">
+    <div class="strip-num">30+</div>
+    <div class="strip-label">Mini Articles</div>
+  </div>
+  <div class="strip-item">
+    <div class="strip-num">∞</div>
+    <div class="strip-label">Frequency</div>
+  </div>
+</div>
+
+<!-- SECTION LABEL -->
+<div class="section-label">
+  <h2>Browse the Collection</h2>
+</div>
+
+<!-- SHELF -->
+<div class="shelf">
+
+  <!-- CLEOPATRA'S DREAM -->
+  <a class="issue i-cleo" href="cleopatras-dream-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-cleopatra.png" alt="Cleopatra's Dream — Y3K Magazine Issue 777"/>
+      <div class="cover-overlay">
+        <span class="overlay-btn">Read Mini Articles →</span>
+      </div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Y3K · Issue 777 · June 2024</span>
+      <div class="issue-title">Cleopatra's Dream</div>
+      <div class="issue-sub">A Y3K Queen's Reality Is Her Greatest Fantasy</div>
+      <div class="issue-topics">
+        <span class="topic-pill">Divine Feminine</span>
+        <span class="topic-pill">Gold & Glitch</span>
+        <span class="topic-pill">The Original Icon</span>
+        <span class="topic-pill">Sacred Legacy</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
+
+  <!-- PYRAMID MYSTERY -->
+  <a class="issue i-pyramid" href="pyramid-mystery-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-pyramid.png" alt="Pyramid Mystery Deep Dive — Issue 444"/>
+      <div class="cover-overlay">
+        <span class="overlay-btn">Read Mini Articles →</span>
+      </div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Galactic Goddess · Issue 444 · June 2222</span>
+      <div class="issue-title">Pyramid Mystery</div>
+      <div class="issue-sub">Hidden Knowledge · Lost Civilizations · Cosmic Architecture</div>
+      <div class="issue-topics">
+        <span class="topic-pill">Orion Connection</span>
+        <span class="topic-pill">Sacred Geometry</span>
+        <span class="topic-pill">The Sphinx</span>
+        <span class="topic-pill">Sound Healing</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
+
+  <!-- GALACTIC GODDESS -->
+  <a class="issue i-galactic" href="galactic-goddess-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-galactic.png" alt="Galactic Goddess — Issue 444"/>
+      <div class="cover-overlay">
+        <span class="overlay-btn">Read Mini Articles →</span>
+      </div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Y2K Edition · Issue 444 · June 2222</span>
+      <div class="issue-title">Galactic Goddess</div>
+      <div class="issue-sub">Awaken · Align · Ascend</div>
+      <div class="issue-topics">
+        <span class="topic-pill">You Are Starlight</span>
+        <span class="topic-pill">UFO Files</span>
+        <span class="topic-pill">5D & Beyond</span>
+        <span class="topic-pill">New Earth</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
+
+  <!-- LUMINOUS SOUL -->
+  <a class="issue i-luminous" href="luminous-soul-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-luminous.png" alt="Luminous Soul — Issue 24"/>
+      <div class="cover-overlay">
+        <span class="overlay-btn">Read Mini Articles →</span>
+      </div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Issue 24 · July 2026</span>
+      <div class="issue-title">Luminous Soul</div>
+      <div class="issue-sub">Elevate · Empower · Evolve</div>
+      <div class="issue-topics">
+        <span class="topic-pill">I Am the Future</span>
+        <span class="topic-pill">Beyond the Veil</span>
+        <span class="topic-pill">How to Align</span>
+        <span class="topic-pill">You Are the Magic</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- COMING SOON -->
+<div class="coming">
+  <p>The Collection Continues</p>
+  <h3>More issues awakening soon...</h3>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="wordmark">Magick Mica TV</span>
+  <p>Sacred Mini Articles · Digital Collection</p>
+  <p style="margin-top:0.5rem;">Elevate · Empower · Evolve &nbsp;·&nbsp; Awaken · Align · Ascend</p>
+  <p style="margin-top:0.4rem;">She is not here to fix the old world. She is here to birth the new one.</p>
+</footer>
+
+</body>
+</html>

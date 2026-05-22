@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Luminous Soul — Issue 24 — July 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --iris:#9b6fff;
+  --iris-light:#c9aaff;
+  --rose:#ff6eb4;
+  --rose-light:#ffb3d9;
+  --teal:#00d4c8;
+  --gold:#e8c87a;
+  --pearl:#f0eaff;
+  --blue:#4a9eff;
+  --bg:#07040f;
+  --text:#f5f0ff;
+  --muted:#7a6a9a;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* nebula bg */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(155,111,255,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(255,110,180,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(0,212,200,0.05) 0%,transparent 60%),
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.6) 0%,transparent 100%),
+    radial-gradient(1px 1px at 35% 72%, rgba(200,170,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 58% 28%, rgba(255,255,255,0.55) 0%,transparent 100%),
+    radial-gradient(1px 1px at 78% 82%, rgba(0,212,200,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 92% 42%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 88%, rgba(255,110,180,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 66% 58%, rgba(255,255,255,0.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 44% 44%, rgba(200,170,255,0.4) 0%,transparent 100%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── HEADER ── */
+header{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:4rem 2rem 2.5rem;
+  background:linear-gradient(180deg,rgba(155,111,255,0.15) 0%,rgba(255,110,180,0.05) 60%,transparent 100%);
+  border-bottom:1px solid rgba(155,111,255,0.3);
+}
+
+.holo-bar{
+  font-family:'Space Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;
+  margin-bottom:1.2rem;
+  background:linear-gradient(90deg,var(--rose),var(--iris),var(--teal),var(--gold),var(--blue),var(--rose));
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 5s linear infinite;
+}
+@keyframes shimmer{to{background-position:300% center;}}
+
+.mag-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(4rem,10vw,8rem);
+  font-weight:900;
+  letter-spacing:0.02em;line-height:0.85;
+  background:linear-gradient(135deg,var(--iris-light) 0%,var(--pearl) 35%,var(--rose-light) 65%,var(--iris-light) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.mag-title-sub{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,4rem);
+  font-weight:400;font-style:italic;
+  background:linear-gradient(135deg,var(--teal) 0%,var(--blue) 50%,var(--iris) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:0.05em;margin-top:0.2rem;
+}
+.mag-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.2rem;
+  color:var(--gold);margin-top:0.75rem;letter-spacing:0.15em;
+}
+.mag-tag{
+  font-family:'Space Mono',monospace;font-size:0.6rem;
+  letter-spacing:0.25em;color:var(--muted);margin-top:0.75rem;
+}
+
+.holo-line{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.75rem;}
+.holo-line::before{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--iris));}
+.holo-line::after {content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,var(--rose),transparent);}
+.holo-icon{font-size:1rem;color:var(--gold);}
+
+/* ── GRID ── */
+main{
+  position:relative;z-index:1;
+  max-width:1080px;margin:0 auto;
+  padding:3rem 1.5rem 5rem;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:1.75rem;
+}
+
+/* ── BASE CARD ── */
+.card{
+  padding:2rem 1.75rem;position:relative;overflow:hidden;
+  border:1px solid transparent;transition:transform 0.3s,box-shadow 0.3s;
+}
+.card:hover{transform:translateY(-2px);}
+.card::before,.card::after{
+  content:'✦';position:absolute;
+  font-family:'Space Mono',monospace;font-size:0.6rem;opacity:0.35;
+}
+.card::before{top:0.6rem;left:0.75rem;}
+.card::after {bottom:0.6rem;right:0.75rem;}
+
+/* ── CARD THEMES ── */
+
+/* IRIS — deep purple */
+.t-iris{
+  background:linear-gradient(135deg,#0d0820 0%,#160d30 100%);
+  border-color:rgba(155,111,255,0.4);
+  box-shadow:0 0 35px rgba(155,111,255,0.09),inset 0 0 50px rgba(155,111,255,0.04);
+}
+.t-iris::before,.t-iris::after{color:var(--iris);}
+.t-iris .tag{color:var(--iris);}
+.t-iris h2{color:var(--iris-light);}
+.t-iris p strong{color:var(--iris-light);}
+.t-iris p:first-of-type::first-letter{color:var(--iris);}
+.t-iris .pq{border-color:var(--iris);color:var(--iris-light);}
+
+/* ROSE — deep pink */
+.t-rose{
+  background:linear-gradient(135deg,#1a0618 0%,#280a22 100%);
+  border-color:rgba(255,110,180,0.38);
+  box-shadow:0 0 35px rgba(255,110,180,0.08),inset 0 0 50px rgba(255,110,180,0.03);
+}
+.t-rose::before,.t-rose::after{color:var(--rose);}
+.t-rose .tag{color:var(--rose);}
+.t-rose h2{color:var(--rose-light);}
+.t-rose p strong{color:var(--rose-light);}
+.t-rose p:first-of-type::first-letter{color:var(--rose);}
+.t-rose .pq{border-color:var(--rose);color:var(--rose-light);}
+
+/* TEAL — cosmic ocean */
+.t-teal{
+  background:linear-gradient(135deg,#001a1a 0%,#002828 100%);
+  border-color:rgba(0,212,200,0.35);
+  box-shadow:0 0 35px rgba(0,212,200,0.07),inset 0 0 50px rgba(0,212,200,0.03);
+}
+.t-teal::before,.t-teal::after{color:var(--teal);}
+.t-teal .tag{color:var(--teal);}
+.t-teal h2{color:#80ffe8;}
+.t-teal p strong{color:#80ffe8;}
+.t-teal p:first-of-type::first-letter{color:var(--teal);}
+.t-teal .pq{border-color:var(--teal);color:#80ffe8;}
+
+/* GOLD — rose gold */
+.t-gold{
+  background:linear-gradient(135deg,#160e00 0%,#221600 100%);
+  border-color:rgba(232,200,122,0.35);
+  box-shadow:0 0 35px rgba(232,200,122,0.07),inset 0 0 50px rgba(232,200,122,0.03);
+}
+.t-gold::before,.t-gold::after{color:var(--gold);}
+.t-gold .tag{color:var(--gold);}
+.t-gold h2{color:#f5dfa0;}
+.t-gold p strong{color:#f5dfa0;}
+.t-gold p:first-of-type::first-letter{color:var(--gold);}
+.t-gold .pq{border-color:var(--gold);color:#f5dfa0;}
+
+/* BLUE — electric */
+.t-blue{
+  background:linear-gradient(135deg,#020a1a 0%,#051228 100%);
+  border-color:rgba(74,158,255,0.38);
+  box-shadow:0 0 35px rgba(74,158,255,0.08),inset 0 0 50px rgba(74,158,255,0.03);
+}
+.t-blue::before,.t-blue::after{color:var(--blue);}
+.t-blue .tag{color:var(--blue);}
+.t-blue h2{color:#a0d0ff;}
+.t-blue p strong{color:#a0d0ff;}
+.t-blue p:first-of-type::first-letter{color:var(--blue);}
+.t-blue .pq{border-color:var(--blue);color:#a0d0ff;}
+
+/* HOLO — iridescent feature */
+.t-holo{
+  background:linear-gradient(135deg,#0d0820 0%,#001a18 50%,#1a0618 100%);
+  border:1px solid transparent;background-clip:padding-box;
+  box-shadow:
+    0 0 0 1px rgba(155,111,255,0.4),
+    0 0 0 2px rgba(255,110,180,0.2),
+    0 0 0 3px rgba(0,212,200,0.1),
+    0 0 50px rgba(155,111,255,0.12);
+}
+.t-holo::before,.t-holo::after{color:var(--gold);}
+.t-holo .tag{
+  background:linear-gradient(90deg,var(--rose),var(--iris),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.t-holo h2{
+  background:linear-gradient(135deg,var(--rose-light),var(--iris-light),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.t-holo p strong{color:var(--gold);}
+.t-holo p:first-of-type::first-letter{color:var(--rose);}
+.t-holo .pq{border-image:linear-gradient(180deg,var(--iris),var(--rose)) 1;color:var(--iris-light);}
+
+/* ── TYPOGRAPHY ── */
+.tag{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:0.65rem;display:block;}
+
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:900;line-height:1.1;margin-bottom:1.1rem;}
+h2 em{font-style:italic;font-weight:400;display:block;font-size:0.7em;opacity:0.75;margin-top:0.2em;}
+
+p{font-size:1.12rem;line-height:1.88;color:#d0c8e8;position:relative;z-index:1;}
+p+p{margin-top:0.9rem;}
+
+.card p:first-of-type::first-letter{
+  font-family:'Playfair Display',serif;
+  float:left;font-size:3.8rem;line-height:0.75;
+  margin:0.1rem 0.5rem 0 0;font-weight:900;
+}
+
+.pq{
+  margin:1.25rem 0;padding:0.5rem 0 0.5rem 1.4rem;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.28rem;line-height:1.5;
+  position:relative;z-index:1;border-left:3px solid;
+}
+
+/* align list */
+.align-list{list-style:none;margin-top:1rem;position:relative;z-index:1;}
+.align-list li{
+  font-size:1.08rem;color:#d0c8e8;
+  padding:0.6rem 0 0.6rem 2rem;
+  border-bottom:1px solid rgba(155,111,255,0.15);
+  position:relative;
+}
+.align-list li:last-child{border-bottom:none;}
+.align-list li::before{
+  content:'◈';position:absolute;left:0;
+  color:var(--teal);font-size:0.75rem;top:0.85rem;
+}
+.align-list li strong{color:var(--iris-light);}
+
+/* mantra box */
+.mantra{
+  margin-top:1.4rem;
+  padding:1rem 1.25rem;
+  border:1px solid rgba(155,111,255,0.3);
+  background:rgba(155,111,255,0.06);
+  text-align:center;
+  position:relative;z-index:1;
+}
+.mantra p{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1.1rem;
+  color:var(--iris-light);line-height:1.5;
+}
+.mantra p:first-of-type::first-letter{float:none;font-size:inherit;line-height:inherit;margin:0;font-weight:inherit;color:inherit;}
+.mantra-label{
+  font-family:'Space Mono',monospace;font-size:0.55rem;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:0.5rem;display:block;
+}
+
+/* grid spans */
+.c12{grid-column:span 12;} .c8{grid-column:span 8;} .c7{grid-column:span 7;}
+.c6{grid-column:span 6;}   .c5{grid-column:span 5;} .c4{grid-column:span 4;}
+@media(max-width:720px){.c12,.c8,.c7,.c6,.c5,.c4{grid-column:span 12;}}
+
+.wm{grid-column:span 12;display:flex;align-items:center;gap:1.5rem;margin:0.25rem 0;}
+.wm::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--iris),var(--rose),transparent);}
+.wm::after{display:none;}
+.wm span{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;color:var(--muted);white-space:nowrap;}
+
+/* footer */
+footer{
+  position:relative;z-index:1;text-align:center;padding:2.5rem 2rem;
+  border-top:1px solid rgba(155,111,255,0.25);
+  font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--muted);
+}
+footer p+p{margin-top:0.4rem;}
+footer .glow{
+  background:linear-gradient(90deg,var(--rose),var(--iris),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="holo-bar">Awakening the New Earth &nbsp;·&nbsp; Elevate · Empower · Evolve &nbsp;·&nbsp; July 2026</p>
+  <div class="mag-title">Luminous</div>
+  <div class="mag-title-sub">Soul</div>
+  <p class="mag-tagline">Elevate. Empower. Evolve.</p>
+  <p class="mag-tag">Issue 24 &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; Awakening the New Earth</p>
+  <div class="holo-line"><span class="holo-icon">✦</span></div>
+</header>
+
+<main>
+
+  <!-- 1: I AM THE FUTURE — holo full width cover feature -->
+  <article class="card t-holo c12">
+    <span class="tag">Cover Feature · Issue 24</span>
+    <h2>I Am the Future<em>The Goddess Within Leads the Way</em></h2>
+    <p>She is not here to fix the old world. She is here to <strong>birth the new one</strong>. There is a profound difference between the two — one requires endless effort poured into structures that were never designed to include you, and the other requires only that you remember who you are and step fully into it. The cosmic goddess does not petition for change. She embodies it. She does not wait for permission. She arrives, and the world reorganises itself around her frequency.</p>
+    <div class="pq">"She is not waiting for the future to arrive. She is the future — arriving now, in a body, in a breath, in a single moment of choosing herself completely."</div>
+    <p>A luminous fusion of ancient wisdom and future technology, the cosmic goddess emerges as a symbol of remembrance — reclaiming divine power, sovereignty, and sacred purpose one awakened woman at a time. She carries the codes of civilisations that understood what we are only beginning to relearn: that consciousness is the most advanced technology in existence, that the body is a sacred instrument, that love is not a sentiment but a <strong>governing frequency</strong> with the power to reorganise reality at the cellular level.</p>
+    <p>This is more than a moment. This is a <strong>planetary awakening</strong>. And you are not a witness to it. You are the event itself — the living, breathing proof that something profound and irreversible has shifted. The question is no longer whether the new earth is coming. The question is whether you are willing to be the one who shows the rest of humanity that it is already here.</p>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; Elevate · Empower · Evolve &nbsp; ✦</span></div>
+
+  <!-- 2: AGE OF REMEMBRANCE — iris wide -->
+  <article class="card t-iris c7">
+    <span class="tag">Collective Shift</span>
+    <h2>The Age of Remembrance</h2>
+    <p>We are entering a new epoch — one that does not look like any future we were sold in textbooks or blockbusters. It is quieter than that. More interior. It begins not with a dramatic external event but with millions of individual moments of recognition: the sudden, cellular certainty that <strong>something is waking up</strong>, that the world you were taught to accept is not the only version available, and that you have always known this.</p>
+    <div class="pq">"This is not a new beginning. It is a return — to the sacred feminine, to unity consciousness, to the truth that was always already here."</div>
+    <p>The Age of Remembrance honours what has been suppressed, lost, or deliberately erased: the sacred feminine as an active force in civilisation. Unity consciousness as a lived reality rather than a philosophical ideal. Multidimensional living as the natural state of an awakened human being. These are not radical new ideas. They are the oldest ones — and they are <strong>returning now</strong>, carried forward in the bodies and hearts of those courageous enough to hold them.</p>
+    <p>A time to return to balance. To truth. To love. Not as ideals but as daily practice, daily choice, daily <strong>becoming</strong>. The age of separation is ending. The age of coherence is already underway — and you are living proof.</p>
+  </article>
+
+  <!-- 3: REMEMBER WHO YOU ARE — rose narrow -->
+  <article class="card t-rose c5">
+    <span class="tag">Soul Remembrance</span>
+    <h2>Remember Who You Are</h2>
+    <p>In a time of great transformation, the call is not to become something new. It is to <strong>remember</strong> what has always been within. The spiritual path so many of us imagine as a long climb upward is actually a descent — a sinking down into what was always already true, beneath the conditioning, the fear, the stories that were handed to us before we were old enough to question them.</p>
+    <p>You are not separate from the divine. You are the spark. You are the code. You are the creator — not of some abstract cosmic drama, but of the specific, beautiful, complicated, luminous life that only you can live. <strong>No one else has your frequency</strong>. No one else carries your precise combination of wounds transformed into wisdom, of gifts waiting to be unwrapped, of love that has survived everything it has been through and is still, somehow, here.</p>
+    <div class="pq">"The remembering is not dramatic. It is quiet. It happens in the moment you stop trying to be someone else and simply allow yourself to be the person you already are."</div>
+    <p>Come back. You have been <strong>missed</strong> — by yourself most of all.</p>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; She Is Not Here to Fix the Old World — She Is Here to Birth the New One &nbsp; ✦</span></div>
+
+  <!-- 4: HOW TO ALIGN — teal medium -->
+  <article class="card t-teal c6">
+    <span class="tag">Daily Practice</span>
+    <h2>How to Align<em>Small Choices. Big Shift. Infinite Power.</em></h2>
+    <p>Alignment is not a destination you reach once and then maintain effortlessly. It is a practice — a daily, sometimes hourly returning to yourself. It does not require a mountain retreat or a two-hour morning routine. It requires only the willingness to pause, check in, and choose the action that honours the highest version of who you are becoming. These five practices are where that work begins.</p>
+    <ul class="align-list">
+      <li><strong>Meditate daily.</strong> Even five minutes of stillness creates a gap between stimulus and response — and in that gap lives your freedom. The practice is not about emptying your mind. It is about learning that you are not your thoughts.</li>
+      <li><strong>Protect your energy.</strong> Your energy field is real, it is responsive, and it is yours. Be intentional about what you allow into it — the content you consume, the conversations you participate in, the spaces you inhabit. You are allowed to be selective. You are, in fact, required to be.</li>
+      <li><strong>Speak your truth.</strong> Not aggressively. Not apologetically. Simply clearly — with the calm certainty of someone who knows their perspective has value. Every time you swallow what is true for you, you dim a little. Every time you speak it, you expand.</li>
+      <li><strong>Create fearlessly.</strong> Creation is one of the most direct lines to the divine available to a human being. You do not need talent, permission, or an audience. You need only to begin — and to resist the voice that says what you make is not enough.</li>
+      <li><strong>Trust your inner knowing.</strong> Your intuition is not a soft suggestion. It is precision intelligence, accumulated across lifetimes, delivered in real time. It was right before the logic caught up. It will be right again.</li>
+    </ul>
+    <div class="mantra">
+      <span class="mantra-label">Daily Mantra</span>
+      <p>Small choices. Big shift. Infinite power. I am aligned, I am clear, I am exactly where I need to be.</p>
+    </div>
+  </article>
+
+  <!-- 5: BEYOND THE VEIL — blue medium -->
+  <article class="card t-blue c6">
+    <span class="tag">Multidimensional Living</span>
+    <h2>Beyond the Veil</h2>
+    <p>Reality is more fluid than we have been taught. The version of the world presented to us as solid, fixed, and singular is a consensus — a shared agreement between minds that have been trained since birth to perceive only a narrow band of what actually exists. Beyond that band: realms, guides, frequencies, codes, and entire dimensions of intelligence that are available to those who are <strong>ready to remember</strong>.</p>
+    <div class="pq">"The veil was never a wall. It was always a frequency. And you already know how to tune."</div>
+    <p>Beyond the veil is not a place you travel to. It is a state of perception you cultivate — through stillness, through creative practice, through the deliberate expansion of what you allow yourself to believe is possible. The guides and intelligences that exist in those realms are not distant or inaccessible. They are close. <strong>Closer than your breath</strong>. They have been waiting — patiently, without judgment — for you to quiet the noise enough to hear them.</p>
+    <p>Keep going. You are closer than you think. The thinning of the veil is not something that happens to you. It is something you choose — one moment of openness, one act of courage, one willingness to believe that <strong>more is possible</strong>, every single day.</p>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; You Are the Spark · You Are the Code · You Are the Creator &nbsp; ✦</span></div>
+
+  <!-- 6: YOU ARE THE MAGIC — holo full width -->
+  <article class="card t-holo c12">
+    <span class="tag">Sacred Truth</span>
+    <h2>You Are the Magic<em>Unleashed, Unbounded, Undeniable</em></h2>
+    <p>The goddess is not separate from you. This is the misunderstanding that has persisted for millennia — that the divine is elsewhere, in temples and texts and the hands of intermediaries, available only to those deemed worthy by institutions built by people who benefited from you believing you needed them. <strong>You never needed them.</strong> The goddess lives in your breath. In your voice. In your vision. She is not a figure to be worshipped at a distance. She is the one doing the worshipping — and being worshipped — whenever you fully inhabit yourself.</p>
+    <div class="pq">"She is you, unleashed. The world is ready. The only question remaining is: are you?"</div>
+    <p>The magic was never out there. It was always in the quality of your attention, the depth of your intention, the courage of your becoming. Every time you chose yourself when everything told you to shrink. Every time you created something from nothing but a feeling and a willingness to begin. Every time you loved so completely that the people around you remembered, just for a moment, that love is the most structurally sound force in the universe — that was the magic. <strong>That was you.</strong></p>
+    <p>Radiate. Create. Lead. Not because the world requires it of you — though it does, desperately — but because you were made for exactly this moment. This convergence of ancient remembering and future becoming. This threshold between the world that is ending and the one that your presence is helping to build. You are not watching the shift. You are <strong>the shift</strong>. The goddess is ready. The new earth is loading. And you, luminous soul, are the one who turns it on.</p>
+  </article>
+
+  <div class="wm"><span>✦ &nbsp; Awaken · Align · Ascend &nbsp; ✦</span></div>
+
+  <!-- 7: ELEVATE YOUR FREQUENCY — gold wide (bonus) -->
+  <article class="card t-gold c7">
+    <span class="tag">Bonus Feature</span>
+    <h2>Elevate Your Frequency<em>The Daily Architecture of a Luminous Life</em></h2>
+    <p>A luminous life is not built in grand gestures. It is built in the <strong>ten-second choices</strong> — the moment you reach for water instead of another hour of numbing, the moment you say what is true instead of what is easy, the moment you put down the device and sit with yourself long enough to remember what you actually feel. These are the architectural decisions. Everything else is decoration.</p>
+    <p>Your frequency is the sum total of what you consistently think, feel, consume, speak, and believe. Raise any one of those and the others begin to follow. Start where resistance is lowest. If the body is easier than the mind, begin there — move it, rest it, feed it with intention. If creativity comes more naturally than stillness, begin there — make something every day, anything, without concern for the result. The path up is not one path. It is <strong>your path</strong>, discovered by taking the next step that feels most like expansion and least like contraction, again and again, until the elevated frequency is simply who you are.</p>
+    <div class="pq">"You do not have to earn the right to feel good. You are allowed to begin with joy and work outward from there."</div>
+  </article>
+
+  <!-- 8: LUMINOUS BEAUTY — rose narrow (bonus) -->
+  <article class="card t-rose c5">
+    <span class="tag">Sacred Self</span>
+    <h2>Luminous Beauty<em>Glow as a Spiritual Practice</em></h2>
+    <p>There is a beauty that radiates from the inside — not because of what has been applied to the surface, but because of what has been <strong>cultivated within</strong>. It is the glow of a woman who has done her inner work and is no longer performing. Who has stopped holding her breath and started taking up space. Who looks at her own reflection with something approaching tenderness instead of critique.</p>
+    <p>Luminous beauty is a spiritual practice because it requires the most radical act available to women in this world: <strong>believing that you are enough, exactly as you are</strong>. Not after you lose the weight, finish the project, fix the flaw, earn the approval. Now. In this body. In this season. In this particular, unrepeatable version of yourself that will never exist again in quite this way.</p>
+    <div class="pq">"Glow is not a product. It is a decision — made freshly, every morning, to inhabit yourself without apology."</div>
+    <p>Care for your body as the sacred vessel it is. Nourish it. Rest it. Adorn it with intention. But let the beauty begin on the inside — in the quality of your self-talk, the depth of your self-trust, the warmth of your own <strong>self-regard</strong>. That is the glow that no filter can create and no time can take away.</p>
+  </article>
+
+</main>
+
+<footer>
+  <p><span class="glow">Luminous Soul Magazine</span> &nbsp;·&nbsp; Issue 24 &nbsp;·&nbsp; July 2026</p>
+  <p>Elevate · Empower · Evolve &nbsp;·&nbsp; Awakening the New Earth</p>
+  <p style="margin-top:0.5rem;">She is not here to fix the old world. She is here to birth the new one.</p>
+</footer>
+
+</body>
+</html>
