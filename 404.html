@@ -1,0 +1,168 @@
+
+<!-- 
+  =========================================
+  MAGICK MICA TV — Footer Snippet
+  Paste just before </body> in your HTML file
+  =========================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono&display=swap');
+
+  .mmtv-footer {
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* top divider line with glow */
+  .mmtv-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(180,100,255,0.5), rgba(0,240,255,0.5), rgba(180,100,255,0.5), transparent);
+  }
+
+  /* TV icon */
+  .mmtv-tv {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    font-size: 2rem;
+    animation: tvglow 2.5s ease-in-out infinite alternate;
+  }
+  @keyframes tvglow {
+    from { filter: drop-shadow(0 0 4px #ff2d9b) drop-shadow(0 0 8px rgba(255,45,155,0.4)); }
+    to   { filter: drop-shadow(0 0 8px #00f0ff) drop-shadow(0 0 16px rgba(0,240,255,0.4)); }
+  }
+
+  /* main title */
+  .mmtv-title {
+    font-family: 'VT323', monospace;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    letter-spacing: 0.12em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    background: linear-gradient(90deg, #ff2d9b, #c084fc, #a3ff57, #00f0ff, #ff2d9b);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleShimmer 4s linear infinite;
+  }
+  @keyframes titleShimmer { to { background-position: 300% center; } }
+
+  .mmtv-tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(200, 180, 255, 0.45);
+    margin-bottom: 1.4rem;
+  }
+  .mmtv-tagline span {
+    color: rgba(163, 255, 87, 0.6);
+    margin: 0 0.4rem;
+  }
+
+  /* divider dots */
+  .mmtv-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .mmtv-dots::before,
+  .mmtv-dots::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(180,100,255,0.35));
+  }
+  .mmtv-dots::after {
+    background: linear-gradient(90deg, rgba(0,240,255,0.35), transparent);
+  }
+  .mmtv-dots span {
+    font-size: 0.5rem;
+    color: rgba(200,180,255,0.3);
+    letter-spacing: 0.3em;
+  }
+
+  /* links */
+  .mmtv-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .mmtv-link {
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s;
+  }
+  .mmtv-link:hover { opacity: 0.7; }
+
+  .mmtv-link.substack {
+    color: #c084fc;
+  }
+  .mmtv-link.substack::before {
+    content: '↗';
+    color: #a3ff57;
+    font-size: 0.8rem;
+  }
+
+  .mmtv-link.store {
+    color: rgba(200, 180, 255, 0.5);
+    font-size: 0.58rem;
+  }
+  .mmtv-link.store strong {
+    color: #00f0ff;
+    font-weight: 400;
+  }
+
+  .mmtv-copyright {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.48rem;
+    letter-spacing: 0.2em;
+    color: rgba(200, 180, 255, 0.2);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<footer class="mmtv-footer">
+  <div class="mmtv-tv">📺</div>
+  <div class="mmtv-title">Magick Mica TV</div>
+  <div class="mmtv-tagline">
+    <span>✦</span> Where Magic Meets the Pixel <span>✦</span>
+  </div>
+
+  <div class="mmtv-dots"><span>· · · · ·</span></div>
+
+  <div class="mmtv-links">
+    <a class="mmtv-link substack" href="https://substack.com/@magickmica" target="_blank" rel="noopener">
+      substack.com/@magickmica
+    </a>
+    <a class="mmtv-link store" href="https://www.themysticalspiralstore.com/" target="_blank" rel="noopener">
+      check out &nbsp;<strong>themysticalspiralstore.com</strong>
+    </a>
+  </div>
+
+  <div class="mmtv-copyright">
+    © Magick Mica TV · All Rights Reserved
+  </div>
+</footer>
