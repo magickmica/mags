@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhode Island Beach Life — Y3K Magazine Issue 407</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Mono:wght@400;700&family=Caveat:wght@700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #ff2d78;
+    --neon-cyan: #00f5ff;
+    --neon-yellow: #ffe600;
+    --ocean-blue: #0a1628;
+    --deep-purple: #1a0a2e;
+    --coral: #ff6b6b;
+    --gold: #ffd700;
+    --sand: #f5deb3;
+    --seafoam: #7fffd4;
+    --sunset-orange: #ff7043;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ocean-blue);
+    font-family: 'Space Mono', monospace;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .cover-img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+  .cover-img:hover { transform: scale(1.01); }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, #3d0a4f 0%, #0a1628 60%, #000 100%);
+    z-index: 0;
+  }
+
+  .cover-stars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.5); }
+  }
+
+  .cover-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 400px 200px at 50% 0%, rgba(255,45,120,0.15) 0%, transparent 100%),
+      radial-gradient(ellipse 300px 150px at 80% 50%, rgba(0,245,255,0.08) 0%, transparent 100%);
+  }
+
+  .scroll-cta {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+    color: var(--hot-pink);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    animation: bounce 2s infinite;
+  }
+  .scroll-cta::after {
+    content: '▼';
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 6px;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .magazine {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── CHAPTER DIVIDERS ── */
+  .chapter-divider {
+    position: relative;
+    text-align: center;
+    padding: 70px 0 50px;
+    overflow: hidden;
+  }
+  .chapter-divider::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--hot-pink), transparent);
+  }
+  .chapter-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 8px;
+    color: var(--hot-pink);
+    background: var(--ocean-blue);
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── ARTICLE CARDS ── */
+  .article {
+    display: grid;
+    gap: 40px;
+    margin-bottom: 100px;
+  }
+
+  /* Salt Air — full width editorial */
+  .article-salt {
+    position: relative;
+    padding: 60px;
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a0a2e 100%);
+    border: 1px solid rgba(255,45,120,0.3);
+    overflow: hidden;
+  }
+  .article-salt::before {
+    content: 'SALT AIR';
+    position: absolute;
+    right: -20px; top: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: 10px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .article-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    color: var(--hot-pink);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .article-tag::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--hot-pink);
+    max-width: 60px;
+    opacity: 0.5;
+  }
+  .article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, var(--sand) 50%, var(--hot-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .article-subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--neon-cyan);
+    margin-bottom: 30px;
+  }
+  .article-body {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.75);
+    max-width: 680px;
+  }
+  .article-body p + p { margin-top: 1.2em; }
+
+  /* Coastal Drip — two column */
+  .article-drip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: #000;
+    border: 1px solid rgba(0,245,255,0.2);
+  }
+  .drip-left {
+    padding: 60px 50px;
+    background: linear-gradient(160deg, #000 0%, #0d0d1f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .drip-left::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0,245,255,0.02) 0px,
+      rgba(0,245,255,0.02) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+    pointer-events: none;
+  }
+  .drip-right {
+    padding: 60px 50px;
+    background: linear-gradient(160deg, #0d0d1f 0%, #1a001a 100%);
+    border-left: 1px solid rgba(0,245,255,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .style-keywords {
+    margin-top: 30px;
+  }
+  .style-keywords h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--neon-cyan);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .keyword-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .keyword {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .keyword::before {
+    content: '✦';
+    color: var(--hot-pink);
+    font-size: 0.8rem;
+  }
+
+  /* 401 Forever */
+  .article-401 {
+    position: relative;
+    padding: 80px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .article-401::before {
+    content: '401';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(150px, 25vw, 280px);
+    font-weight: 900;
+    color: rgba(255,45,120,0.06);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .article-401 .article-body {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .callout-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    color: var(--hot-pink);
+    border-left: 3px solid var(--hot-pink);
+    padding: 16px 24px;
+    margin: 30px 0;
+    text-align: left;
+    background: rgba(255,45,120,0.06);
+  }
+
+  /* Beach Day Bucket List */
+  .bucket-list-section {
+    padding: 0 0 80px;
+  }
+  .bucket-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .bucket-header .article-title { margin: 0; }
+  .wave-emoji { font-size: 2rem; }
+
+  .beach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: rgba(255,45,120,0.15);
+  }
+  .beach-card {
+    padding: 36px 32px;
+    background: var(--ocean-blue);
+    position: relative;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+  .beach-card:hover {
+    background: #0e213b;
+    transform: translateY(-2px);
+    z-index: 1;
+  }
+  .beach-number {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255,45,120,0.15);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .beach-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: var(--neon-cyan);
+    margin-bottom: 10px;
+  }
+  .beach-desc {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .dels-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #1a0a2e, #0d1f3c);
+    padding: 40px 50px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .dels-icon { font-size: 3rem; }
+  .dels-text h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: var(--neon-yellow);
+    margin-bottom: 6px;
+  }
+  .dels-text p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* Island Energy + City to Shore — side by side */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    background: rgba(255,45,120,0.1);
+    margin-bottom: 3px;
+  }
+  .col-card {
+    padding: 60px 50px;
+    background: var(--ocean-blue);
+  }
+  .col-card:first-child { background: linear-gradient(180deg, #0a1628 0%, #0d0820 100%); }
+  .col-card:last-child { background: linear-gradient(180deg, #0d0820 0%, #0a1628 100%); }
+
+  /* Local Love */
+  .local-love {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, #0d0820 0%, #1a0a2e 100%);
+    border: 1px solid rgba(255,45,120,0.2);
+    margin-bottom: 3px;
+  }
+  .love-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+    margin-top: 40px;
+  }
+  .love-item {
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.03);
+    text-align: center;
+    border: 1px solid rgba(255,45,120,0.1);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .love-item:hover {
+    border-color: rgba(255,45,120,0.5);
+    background: rgba(255,45,120,0.06);
+  }
+  .love-icon { font-size: 2rem; margin-bottom: 12px; }
+  .love-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    color: #fff;
+  }
+
+  /* Playlist */
+  .playlist-section {
+    padding: 80px 60px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .playlist-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255,45,120,0.05) 39px,
+      rgba(255,45,120,0.05) 40px
+    );
+    pointer-events: none;
+  }
+  .playlist-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+  .playlist-header .article-title { color: #fff; -webkit-text-fill-color: #fff; }
+  .playlist-tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3px;
+    position: relative;
+    z-index: 1;
+  }
+  .track {
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+  .track:hover {
+    background: rgba(255,45,120,0.1);
+    border-color: rgba(255,45,120,0.3);
+  }
+  .track-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.7rem;
+    color: var(--hot-pink);
+    min-width: 28px;
+  }
+  .track-name {
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .track-bar {
+    margin-left: auto;
+    width: 40px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .track-bar-fill {
+    height: 100%;
+    background: var(--hot-pink);
+    border-radius: 2px;
+    animation: pulse-bar 2s ease-in-out infinite alternate;
+  }
+  @keyframes pulse-bar {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+
+  /* Coastal Icon — final feature */
+  .coastal-icon-section {
+    position: relative;
+    padding: 100px 60px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #000 0%, #1a0a2e 50%, #0a1628 100%);
+  }
+  .coastal-icon-section .article-title {
+    font-size: clamp(3rem, 8vw, 7rem);
+    margin-bottom: 6px;
+  }
+  .icon-tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  .icon-body {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-style: italic;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto 50px;
+  }
+  .coastal-icon-section::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600px;
+    color: rgba(255,45,120,0.03);
+    pointer-events: none;
+  }
+  .icon-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .icon-tag {
+    padding: 8px 18px;
+    border: 1px solid rgba(255,45,120,0.4);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: var(--hot-pink);
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .icon-tag:hover {
+    background: var(--hot-pink);
+    color: #000;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(255,45,120,0.2);
+    padding: 50px 60px;
+    text-align: center;
+    background: #000;
+  }
+  .footer-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 8px;
+    color: var(--hot-pink);
+    margin-bottom: 14px;
+  }
+  .footer-tagline {
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+    margin-bottom: 30px;
+  }
+  .footer-legal {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+  }
+
+  /* ── GLITTER HEADLINE (accent) ── */
+  .glitter {
+    background: linear-gradient(90deg, var(--hot-pink), var(--neon-cyan), var(--neon-yellow), var(--hot-pink));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+  }
+
+  /* ── NAV (top) ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,45,120,0.15);
+  }
+  .nav-brand {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--hot-pink);
+    letter-spacing: 4px;
+  }
+  .nav-issue {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--neon-cyan); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .article-drip { grid-template-columns: 1fr; }
+    .drip-right { border-left: none; border-top: 1px solid rgba(0,245,255,0.15); }
+    .two-col { grid-template-columns: 1fr; }
+    .love-grid { grid-template-columns: repeat(2, 1fr); }
+    .article-salt, .article-401, .playlist-section, .coastal-icon-section,
+    .local-love, .col-card, .beach-card { padding: 40px 30px; }
+    .drip-left, .drip-right { padding: 40px 30px; }
+  }
+
+  /* ── FADE IN SECTIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Y3K</div>
+  <div class="nav-issue">ISSUE 407 · JULY 2026</div>
+  <ul class="nav-links">
+    <li><a href="#salt-air">Salt Air</a></li>
+    <li><a href="#coastal-drip">Coastal Drip</a></li>
+    <li><a href="#bucket-list">Bucket List</a></li>
+    <li><a href="#playlist">Playlist</a></li>
+    <li><a href="#icon">Icon</a></li>
+  </ul>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-stars" id="starfield"></div>
+  <img class="cover-img" src="rhode-island-beach-life-natalie.png" alt="Rhode Island Beach Life — Y3K Magazine Cover">
+  <div class="cover-glow"></div>
+  <div class="scroll-cta">SCROLL TO READ</div>
+</div>
+
+<!-- MAGAZINE CONTENT -->
+<div class="magazine">
+
+  <!-- CHAPTER 1 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER ONE · SALT AIR, SUNSETS & STATE PRIDE</span>
+  </div>
+
+  <!-- SALT AIR ARTICLE -->
+  <div id="salt-air" class="article-salt fade-up">
+    <div class="article-tag">Feature</div>
+    <h1 class="article-title">Salt Air,<br>Sunsets &<br>State Pride</h1>
+    <div class="article-subtitle">There's something unreal about Rhode Island in the summer.</div>
+    <div class="article-body">
+      <p>The sky glows pink over the cliffs, salt hangs in the air, and every sunset feels cinematic. Tiny beach towns transform into neon dreamscapes filled with music, bonfires, and late-night drives.</p>
+      <p>Whether you're walking Newport at golden hour or catching waves in Narragansett, Rhode Island carries a kind of magic that feels both nostalgic and futuristic at the same time.</p>
+    </div>
+  </div>
+
+  <!-- CHAPTER 2 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER TWO · COASTAL DRIP</span>
+  </div>
+
+  <!-- COASTAL DRIP -->
+  <div id="coastal-drip" class="article-drip fade-up">
+    <div class="drip-left">
+      <div class="article-tag">Fashion</div>
+      <h2 class="article-title glitter">Coastal<br>Drip</h2>
+      <div class="article-subtitle">Y3K Fashion Meets Newport Cool</div>
+      <div class="article-body">
+        <p>The new coastal look is holographic jackets, chunky jewelry, oversized sunglasses, platform boots, and ocean-glow makeup. Rhode Island beach fashion mixes luxury, thrift-store treasures, surfer energy, and futuristic Y3K aesthetics into one iconic vibe.</p>
+        <p>Metallic fabrics shimmer against the cliffs while iridescent textures reflect the colors of the sea at sunset.</p>
+      </div>
+    </div>
+    <div class="drip-right">
+      <div class="style-keywords">
+        <h4>Style Keywords</h4>
+        <div class="keyword-list">
+          <span class="keyword">Neon Mermaid</span>
+          <span class="keyword">Yacht Club Punk</span>
+          <span class="keyword">Boardwalk Glam</span>
+          <span class="keyword">Holographic Beachwear</span>
+          <span class="keyword">Cosmic Coastal Fashion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 3 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER THREE · 401 FOREVER</span>
+  </div>
+
+  <!-- 401 FOREVER -->
+  <div id="401" class="article-401 fade-up" style="background: linear-gradient(180deg, #000 0%, #0d0820 100%); border: 1px solid rgba(255,45,120,0.15);">
+    <div class="article-tag" style="justify-content: center;">The State</div>
+    <h2 class="article-title" style="font-size: clamp(2.5rem,6vw,5rem);">401 Forever</h2>
+    <p style="font-family:'Space Mono';font-size:0.7rem;letter-spacing:6px;color:rgba(255,255,255,0.3);margin-bottom:40px;">THE STATE THAT HITS DIFFERENT</p>
+    <div class="article-body" style="text-align:left;">
+      <p>Rhode Island may be tiny, but the energy is massive. One minute you're exploring hidden beaches, the next you're eating clam cakes under carnival lights or dancing beside the ocean at midnight.</p>
+      <div class="callout-quote">
+        "Once Rhode Island becomes part of your story, it never really leaves you."
+      </div>
+      <p>The state blends old New England history with modern creative culture, giving it a dreamy atmosphere unlike anywhere else. Locals know: once Rhode Island becomes part of your story, it never really leaves you.</p>
+    </div>
+  </div>
+
+  <!-- CHAPTER 4 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER FOUR · BEACH DAY BUCKET LIST</span>
+  </div>
+
+  <!-- BUCKET LIST -->
+  <div id="bucket-list" class="bucket-list-section fade-up">
+    <div class="bucket-header">
+      <h2 class="article-title">Beach Day<br>Bucket List</h2>
+      <span class="wave-emoji">🌊</span>
+    </div>
+    <div class="beach-grid">
+      <div class="beach-card">
+        <div class="beach-number">01</div>
+        <div class="beach-name">Mohegan Bluffs</div>
+        <p class="beach-desc">Towering cliffs, endless ocean views, and dramatic stairs leading to one of the most beautiful beaches on the East Coast.</p>
+      </div>
+      <div class="beach-card">
+        <div class="beach-number">02</div>
+        <div class="beach-name">Narragansett</div>
+        <p class="beach-desc">Classic Rhode Island surf-town energy with perfect beach days, seafood spots, and unforgettable sunsets.</p>
+      </div>
+      <div class="beach-card">
+        <div class="beach-number">03</div>
+        <div class="beach-name">Block Island</div>
+        <p class="beach-desc">Dreamlike summer escape filled with bikes, beach grass, and hidden coastal magic.</p>
+      </div>
+      <div class="beach-card">
+        <div class="beach-number">04</div>
+        <div class="beach-name">Newport Cliff Walk</div>
+        <p class="beach-desc">A legendary oceanside walk where mansions meet crashing waves and sea mist.</p>
+      </div>
+      <div class="beach-card">
+        <div class="beach-number">05</div>
+        <div class="beach-name">East Beach</div>
+        <p class="beach-desc">Quiet, peaceful, and cinematic — perfect for long walks and glowing sunrise skies.</p>
+      </div>
+      <div class="dels-card">
+        <div class="dels-icon">🍋</div>
+        <div class="dels-text">
+          <h3>Bonus: Del's Lemonade</h3>
+          <p>The frozen summer drink that basically tastes like Rhode Island itself. A legendary local institution that belongs on every bucket list.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 5 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER FIVE · ISLAND ENERGY & LOCAL LOVE</span>
+  </div>
+
+  <!-- TWO COL: Island Energy + City to Shore -->
+  <div class="two-col fade-up">
+    <div class="col-card" id="island-energy">
+      <div class="article-tag">Culture</div>
+      <h2 class="article-title" style="font-size:2rem;">Island Energy</h2>
+      <div class="article-subtitle">Good People. Good Places. Good Vibes.</div>
+      <div class="article-body">
+        <p>The heart of Rhode Island isn't just the beaches — it's the people. Artists, musicians, vintage collectors, surfers, night owls, and dreamers all collide here during summer. Every small town feels like its own little universe filled with creativity and personality.</p>
+      </div>
+    </div>
+    <div class="col-card" id="city-to-shore">
+      <div class="article-tag">Lifestyle</div>
+      <h2 class="article-title" style="font-size:2rem;">From City<br>to Shore</h2>
+      <div class="article-subtitle">Living Your Best 401 Life</div>
+      <div class="article-body">
+        <p>The perfect Rhode Island day starts with iced coffee, turns into an afternoon beach adventure, and ends with music echoing through the night air beside the ocean. It's a lifestyle built around freedom, spontaneity, and finding beauty in the smallest moments.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local Love -->
+  <div class="local-love fade-up">
+    <div class="article-tag">Community</div>
+    <h2 class="article-title" style="font-size:2.5rem;">Local Love 💖</h2>
+    <div class="article-body" style="margin-top:16px;">
+      <p>Rhode Island's creative scene is powered by independent artists, local shops, handmade fashion, beach photographers, musicians, and people building their own worlds. Supporting local here isn't just trendy — it's part of the culture.</p>
+    </div>
+    <div class="love-grid">
+      <div class="love-item">
+        <div class="love-icon">🎨</div>
+        <div class="love-label">Artists</div>
+      </div>
+      <div class="love-item">
+        <div class="love-icon">🛠️</div>
+        <div class="love-label">Makers</div>
+      </div>
+      <div class="love-item">
+        <div class="love-icon">🏄</div>
+        <div class="love-label">Surfers</div>
+      </div>
+      <div class="love-item">
+        <div class="love-icon">✨</div>
+        <div class="love-label">Dreamers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 6 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER SIX · SUMMER PLAYLIST INSIDE</span>
+  </div>
+
+  <!-- PLAYLIST -->
+  <div id="playlist" class="playlist-section fade-up">
+    <div class="playlist-header">
+      <h2 class="article-title" style="font-size:2.5rem;">Summer Playlist</h2>
+      <span style="font-family:'Caveat',cursive;font-size:1.3rem;color:var(--neon-cyan);">🎵 Y3K Coastal Vibes</span>
+    </div>
+    <div class="playlist-tracks">
+      <div class="track">
+        <span class="track-num">01</span>
+        <span class="track-name">Dreamy Synth-Pop</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:85%;animation-delay:0s;"></div></div>
+      </div>
+      <div class="track">
+        <span class="track-num">02</span>
+        <span class="track-name">Sunset House Music</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:70%;animation-delay:0.3s;"></div></div>
+      </div>
+      <div class="track">
+        <span class="track-num">03</span>
+        <span class="track-name">Indie Beach Rock</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:60%;animation-delay:0.6s;"></div></div>
+      </div>
+      <div class="track">
+        <span class="track-num">04</span>
+        <span class="track-name">Vaporwave Classics</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:90%;animation-delay:0.9s;"></div></div>
+      </div>
+      <div class="track">
+        <span class="track-num">05</span>
+        <span class="track-name">Glittery Y2K Remixes</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:75%;animation-delay:1.2s;"></div></div>
+      </div>
+      <div class="track">
+        <span class="track-num">06</span>
+        <span class="track-name">Late-Night Driving Songs</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:50%;animation-delay:1.5s;"></div></div>
+      </div>
+      <div class="track">
+        <span class="track-num">07</span>
+        <span class="track-name">Cosmic Surf Anthems</span>
+        <div class="track-bar"><div class="track-bar-fill" style="width:95%;animation-delay:1.8s;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 7 -->
+  <div class="chapter-divider fade-up">
+    <span class="chapter-num">CHAPTER SEVEN · COASTAL ICON</span>
+  </div>
+
+  <!-- COASTAL ICON -->
+  <div id="icon" class="coastal-icon-section fade-up">
+    <div class="article-tag" style="justify-content:center;">Final Feature</div>
+    <h2 class="article-title glitter">Coastal<br>Icon</h2>
+    <p class="icon-tagline">Born to Stand Out</p>
+    <p class="icon-body">
+      She walks the cliffs at sunset wearing holographic fashion while the ocean glows beneath her. Equal parts dream girl, traveler, and future-pop icon, she represents the new Rhode Island energy: bold, artistic, nostalgic, and impossible to ignore.
+    </p>
+    <div class="icon-tags">
+      <span class="icon-tag">Bold</span>
+      <span class="icon-tag">Artistic</span>
+      <span class="icon-tag">Nostalgic</span>
+      <span class="icon-tag">Future-Pop</span>
+      <span class="icon-tag">Coastal</span>
+      <span class="icon-tag">Iconic</span>
+    </div>
+  </div>
+
+</div><!-- /magazine -->
+
+<!-- MAGICK MICA BANNER STYLES -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@700;900&display=swap');
+
+  .footer-wrap {
+    background: #0b0118;
+    border-top: 1px solid rgba(192,132,252,0.2);
+  }
+  .spiral-banner {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 44px 24px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .spiral-stars-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .spiral-star {
+    display: inline-block;
+    font-size: 13px;
+    animation: spiralTwinkle var(--dur,2s) var(--delay,0s) ease-in-out infinite alternate;
+    background: linear-gradient(135deg,#fbbf24,#ff6eb4,#c084fc,#67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  @keyframes spiralTwinkle {
+    0%   { opacity:.25; transform:scale(.8) rotate(-15deg); }
+    100% { opacity:1;   transform:scale(1.3) rotate(15deg); }
+  }
+  .spiral-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .spiral-divider {
+    flex: 1;
+    max-width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(192,132,252,.5));
+  }
+  .spiral-divider.right {
+    background: linear-gradient(90deg, rgba(192,132,252,.5), transparent);
+  }
+  .spiral-svg { filter: drop-shadow(0 0 8px rgba(192,132,252,.4)); animation: spiralRotate 12s linear infinite; }
+  @keyframes spiralRotate { to { transform: rotate(360deg); } }
+  .spiral-name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    background: linear-gradient(90deg, #fbbf24 0%, #ff6eb4 35%, #c084fc 65%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: .3rem;
+    filter: drop-shadow(0 0 10px rgba(255,110,180,.35));
+  }
+  .spiral-tagline {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7.5px;
+    color: rgba(192,132,252,.7);
+    letter-spacing: .06em;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .footer-bottom {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,.25);
+    letter-spacing: .03em;
+  }
+</style>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-title">Newport Nights. Beach Days. Bonfires. Boat Rides.</div>
+  <div class="footer-tagline">The Rhode Island State of Mind.</div>
+  <div class="footer-legal">Y3K Magazine · Issue 407 · July 2026 · Ocean State Edition · All Rights Reserved</div>
+</footer>
+
+<!-- MAGICK MICA TV BANNER -->
+<div class="footer-wrap">
+  <div class="spiral-banner">
+    <div class="spiral-stars-row">
+      <span class="spiral-star" style="--dur:1.8s;--delay:0s">✦</span><span class="spiral-star" style="--dur:2.3s;--delay:.3s">✧</span>
+      <span class="spiral-star" style="--dur:1.6s;--delay:.7s">✦</span><span class="spiral-star" style="--dur:2.8s;--delay:.1s">✵</span>
+      <span class="spiral-star" style="--dur:2s;--delay:.5s">✦</span><span class="spiral-star" style="--dur:1.9s;--delay:.9s">✧</span>
+      <span class="spiral-star" style="--dur:2.5s;--delay:.2s">✦</span>
+    </div>
+    <div class="spiral-deco">
+      <div class="spiral-divider"></div>
+      <svg class="spiral-svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <defs><radialGradient id="sg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fbbf24"/><stop offset="35%" stop-color="#ff6eb4"/>
+          <stop offset="70%" stop-color="#c084fc"/><stop offset="100%" stop-color="#67e8f9"/>
+        </radialGradient></defs>
+        <circle cx="24" cy="24" r="22" stroke="url(#sg)" stroke-width="1" stroke-dasharray="4 3" fill="none" opacity="0.5"/>
+        <path d="M24 24 Q28 20 32 24 Q36 28 32 32 Q28 36 24 32 Q16 28 18 22 Q20 14 28 12 Q38 10 42 20 Q46 32 38 40 Q30 48 18 44 Q4 40 4 26 Q4 8 20 4 Q38 0 44 16" stroke="url(#sg)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.85"/>
+        <circle cx="24" cy="24" r="3" fill="#fbbf24" opacity="0.9"/>
+      </svg>
+      <div class="spiral-divider right"></div>
+    </div>
+    <a href="https://magickmica.substack.com/" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:14px;margin-bottom:.6rem">
+      <svg width="52" height="48" viewBox="0 0 52 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;filter:drop-shadow(0 0 6px rgba(255,110,180,.5))">
+        <rect x="4" y="14" width="44" height="28" rx="4" fill="#2d1254" stroke="#ff6eb4" stroke-width="1.5"/>
+        <rect x="9" y="18" width="34" height="19" rx="2" fill="#120226" stroke="#c084fc" stroke-width="1"/>
+        <rect x="10" y="19" width="32" height="17" rx="1.5" fill="url(#tvs3)"/>
+        <line x1="16" y1="14" x2="10" y2="4" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="10" cy="4" r="2" fill="#ff6eb4"/>
+        <line x1="36" y1="14" x2="42" y2="4" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="42" cy="4" r="2" fill="#67e8f9"/>
+        <rect x="14" y="42" width="6" height="4" rx="1" fill="#c084fc"/>
+        <rect x="32" y="42" width="6" height="4" rx="1" fill="#c084fc"/>
+        <circle cx="45" cy="22" r="1.5" fill="#ff6eb4"/>
+        <circle cx="45" cy="27" r="1.5" fill="#fbbf24"/>
+        <circle cx="45" cy="32" r="1.5" fill="#67e8f9"/>
+        <text x="26" y="31" text-anchor="middle" font-size="10" fill="#ff6eb4" opacity="0.9">✦</text>
+        <defs>
+          <linearGradient id="tvs3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6eb4" stop-opacity="0.15"/>
+            <stop offset="50%" stop-color="#c084fc" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#67e8f9" stop-opacity="0.15"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="spiral-name" style="margin-bottom:0">Magick Mica TV</div>
+    </a>
+    <div class="spiral-tagline">✦ where magic meets the pixel ✦</div>
+    <div style="margin-bottom:1rem">
+      <a href="https://substack.com/@magickmica" target="_blank" rel="noopener"
+        style="font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:rgba(255,110,180,.6);text-decoration:none;letter-spacing:.04em"
+        onmouseover="this.style.color='#ff6eb4'" onmouseout="this.style.color='rgba(255,110,180,.6)'">
+        ↗ substack.com/@magickmica
+      </a>
+    </div>
+    <div class="footer-bottom">check out &nbsp;<a href="https://www.themysticalspiralstore.com/" target="_blank" rel="noopener" style="color:rgba(192,132,252,.45);text-decoration:none;font-family:'Press Start 2P',monospace;font-size:6.5px;letter-spacing:.05em" onmouseover="this.style.color='#c084fc'" onmouseout="this.style.color='rgba(192,132,252,.45)'">themysticalspiralstore.com</a></div>
+  </div>
+</div>
+
+<script>
+  // Generate starfield
+  const sf = document.getElementById('starfield');
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 3) + 's';
+    s.style.animationDuration = (2 + Math.random() * 3) + 's';
+    s.style.width = s.style.height = (Math.random() > 0.8 ? 3 : 2) + 'px';
+    sf.appendChild(s);
+  }
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
