@@ -255,6 +255,10 @@ footer .glow{
 </head>
 <body>
 
+<nav style="position:relative;z-index:2;text-align:center;padding:1rem 2rem 0;">
+  <a href="index.html" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;color:#c9a84c;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">← Back to Collection</a>
+</nav>
+
 <header>
   <span class="holo-bar">A Y3K Queen's Reality Is Her Greatest Fantasy &nbsp;·&nbsp; 2026 Edition</span>
   <div class="mag-title">Cleopatra's</div>
@@ -363,7 +367,7 @@ footer .glow{
   <article class="card t-cyan c6">
     <span class="tag">2026 · The Shift</span>
     <h2>The Divine Feminine Rising<em>Why Her Time Is Now</em></h2>
-    <p>Every few thousand years, the balance shifts. The pendulum — which has swung so far toward the masculine principles of dominance, extraction, and separation — begins its return. We are living in that return now. The rising of the divine feminine is not a trend. It is a <strong>correction</strong>. A planetary recalibration toward the values that make civilisations last: reciprocity, creativity, intuition, care.</p>
+    <p>Every few thousand years, the balance shifts. The pendulum — which has swung so far toward the masculine principles of dominance, extraction, and separation — begins its return. We are living in that return now. The rising of the divine feminine is not a trend. It is a <strong>correction</strong>. A planetary recalibration toward the values that make civilizations last: reciprocity, creativity, intuition, care.</p>
     <p>Cleopatra was a keeper of those values at a moment when the world was also in transition — when Rome's imperial expansion was meeting Egypt's ancient wisdom, and the outcome hung on the intelligence of one woman who understood both worlds. She did not choose between power and femininity. She demonstrated that <strong>femininity was the power</strong>.</p>
     <div class="pq">"2026 does not need more dominance. It needs more Cleopatra — more wisdom in power, more beauty in strategy, more love in leadership."</div>
     <div class="cglyph">𓇋</div>
@@ -375,6 +379,42 @@ footer .glow{
   <p><span class="glow">Cleopatra's Dream &nbsp;·&nbsp; Y3K Magazine</span> &nbsp;·&nbsp; Issue 777 &nbsp;·&nbsp; 2026</p>
   <p>Warrior · Visionary · Goddess · Legend · Dreamer</p>
   <p style="margin-top:0.4rem;">A Y3K Queen's Reality Is Her Greatest Fantasy</p>
+</footer>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono&display=swap');
+  .mmtv-footer{background:transparent;border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem 1.5rem 2rem;text-align:center;font-family:'Space Mono',monospace;position:relative;overflow:hidden;}
+  .mmtv-footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(180,100,255,0.5),rgba(0,240,255,0.5),rgba(180,100,255,0.5),transparent);}
+  .mmtv-tv{display:inline-block;margin-bottom:0.75rem;font-size:2rem;animation:tvglow 2.5s ease-in-out infinite alternate;}
+  @keyframes tvglow{from{filter:drop-shadow(0 0 4px #ff2d9b) drop-shadow(0 0 8px rgba(255,45,155,0.4));}to{filter:drop-shadow(0 0 8px #00f0ff) drop-shadow(0 0 16px rgba(0,240,255,0.4));}}
+  .mmtv-title{font-family:'VT323',monospace;font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:0.12em;line-height:1;margin-bottom:0.3rem;background:linear-gradient(90deg,#ff2d9b,#c084fc,#a3ff57,#00f0ff,#ff2d9b);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:mmtvShimmer 4s linear infinite;}
+  @keyframes mmtvShimmer{to{background-position:300% center;}}
+  .mmtv-tagline{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,180,255,0.45);margin-bottom:1.4rem;}
+  .mmtv-tagline span{color:rgba(163,255,87,0.6);margin:0 0.4rem;}
+  .mmtv-dots{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:1.2rem;}
+  .mmtv-dots::before{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,100,255,0.35));}
+  .mmtv-dots::after{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,rgba(0,240,255,0.35),transparent);}
+  .mmtv-dots span{font-size:0.5rem;color:rgba(200,180,255,0.3);letter-spacing:0.3em;}
+  .mmtv-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem 2rem;margin-bottom:1.25rem;}
+  .mmtv-link{text-decoration:none;font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;display:inline-flex;align-items:center;gap:0.4rem;transition:opacity 0.2s;}
+  .mmtv-link:hover{opacity:0.7;}
+  .mmtv-link.substack{color:#c084fc;}
+  .mmtv-link.substack::before{content:'↗';color:#a3ff57;font-size:0.8rem;}
+  .mmtv-link.store{color:rgba(200,180,255,0.5);font-size:0.58rem;}
+  .mmtv-link.store strong{color:#00f0ff;font-weight:400;}
+  .mmtv-copyright{font-family:'Space Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;color:rgba(200,180,255,0.2);text-transform:uppercase;margin-top:0.5rem;}
+</style>
+<footer class="mmtv-footer">
+  <div class="mmtv-tv">📺</div>
+  <div class="mmtv-title">Magick Mica TV</div>
+  <div class="mmtv-tagline"><span>✦</span> Where Magic Meets the Pixel <span>✦</span></div>
+  <div class="mmtv-dots"><span>· · · · ·</span></div>
+  <div class="mmtv-links">
+    <a class="mmtv-link substack" href="https://substack.com/@magickmica" target="_blank" rel="noopener">substack.com/@magickmica</a>
+    <a class="mmtv-link store" href="https://www.themysticalspiralstore.com/" target="_blank" rel="noopener">check out &nbsp;<strong>themysticalspiralstore.com</strong></a>
+  </div>
+  <div class="mmtv-copyright">© Magick Mica TV · All Rights Reserved</div>
 </footer>
 
 </body>
