@@ -363,6 +363,48 @@
   .portal-link.tertiary .portal-label { color: var(--cyan); }
   .portal-link.tertiary .portal-sub { color: rgba(0,240,255,0.45); }
 
+  /* pink — Mags */
+  .portal-link.pink {
+    background: rgba(255,45,155,0.07);
+    border-color: rgba(255,45,155,0.25);
+  }
+  .portal-link.pink::before { background: linear-gradient(90deg, rgba(255,45,155,0.06), transparent); }
+  .portal-link.pink:hover {
+    border-color: rgba(255,45,155,0.6);
+    box-shadow: 0 0 18px rgba(255,45,155,0.15), 0 0 40px rgba(255,45,155,0.05);
+  }
+  .portal-link.pink .portal-icon { color: var(--pink); }
+  .portal-link.pink .portal-label { color: var(--pink); }
+  .portal-link.pink .portal-sub { color: rgba(255,45,155,0.45); }
+
+  /* gold — UFO */
+  .portal-link.gold {
+    background: rgba(255,210,80,0.07);
+    border-color: rgba(255,210,80,0.22);
+  }
+  .portal-link.gold::before { background: linear-gradient(90deg, rgba(255,210,80,0.06), transparent); }
+  .portal-link.gold:hover {
+    border-color: rgba(255,210,80,0.6);
+    box-shadow: 0 0 18px rgba(255,210,80,0.15), 0 0 40px rgba(255,210,80,0.05);
+  }
+  .portal-link.gold .portal-icon { color: #ffd250; }
+  .portal-link.gold .portal-label { color: #ffd250; }
+  .portal-link.gold .portal-sub { color: rgba(255,210,80,0.45); }
+
+  /* ocean — Beach Life */
+  .portal-link.ocean {
+    background: rgba(0,200,180,0.07);
+    border-color: rgba(0,200,180,0.22);
+  }
+  .portal-link.ocean::before { background: linear-gradient(90deg, rgba(0,200,180,0.06), transparent); }
+  .portal-link.ocean:hover {
+    border-color: rgba(0,200,180,0.6);
+    box-shadow: 0 0 18px rgba(0,200,180,0.15), 0 0 40px rgba(0,200,180,0.05);
+  }
+  .portal-link.ocean .portal-icon { color: #00c8b4; }
+  .portal-link.ocean .portal-label { color: #00c8b4; }
+  .portal-link.ocean .portal-sub { color: rgba(0,200,180,0.45); }
+
   .portal-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
@@ -484,6 +526,33 @@
         <span class="portal-sub">themysticalspiralstore.com</span>
       </span>
       <span class="portal-arrow">↗</span>
+    </a>
+
+    <a class="portal-link pink" href="https://magickmica.github.io/mags/mags/index.html">
+      <span class="portal-icon">✨</span>
+      <span class="portal-text">
+        <span class="portal-label">Mags</span>
+        <span class="portal-sub">magickmica.github.io/mags</span>
+      </span>
+      <span class="portal-arrow">→</span>
+    </a>
+
+    <a class="portal-link gold" href="https://magickmica.github.io/alice/alice-ufo-message.html">
+      <span class="portal-icon">🛸</span>
+      <span class="portal-text">
+        <span class="portal-label">Alice — UFO Message</span>
+        <span class="portal-sub">magickmica.github.io/alice</span>
+      </span>
+      <span class="portal-arrow">→</span>
+    </a>
+
+    <a class="portal-link ocean" href="https://magickmica.github.io/mags/mags/rhode-island-beach-life.html">
+      <span class="portal-icon">🌊</span>
+      <span class="portal-text">
+        <span class="portal-label">Rhode Island Beach Life</span>
+        <span class="portal-sub">magickmica.github.io/mags</span>
+      </span>
+      <span class="portal-arrow">→</span>
     </a>
   </nav>
 
