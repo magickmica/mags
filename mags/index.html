@@ -354,6 +354,29 @@ footer{
 </head>
 <body>
 
+<!-- SITE BACK-NAV -->
+<style>
+  .cm-topnav{position:relative;z-index:2;display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;padding:1.6rem 1.5rem 0;}
+  .cm-navlink{
+    font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;
+    text-decoration:none;color:rgba(200,180,255,0.55);
+    border:1px solid rgba(192,132,252,0.28);border-radius:999px;
+    padding:0.5rem 1.15rem;display:inline-flex;align-items:center;gap:0.55rem;
+    background:rgba(155,111,255,0.05);
+    transition:color .2s,border-color .2s,box-shadow .2s,background .2s;
+  }
+  .cm-navlink span{color:#a3ff57;transition:color .2s;}
+  .cm-navlink:hover,.cm-navlink:focus-visible{
+    color:#f5f0ff;border-color:#00f0ff;background:rgba(0,240,255,0.07);
+    box-shadow:0 0 22px rgba(0,240,255,0.25);outline:none;
+  }
+  .cm-navlink:hover span,.cm-navlink:focus-visible span{color:#00f0ff;}
+</style>
+<nav class="cm-topnav" aria-label="Site">
+  <a class="cm-navlink" href="https://magickmica.github.io/"><span aria-hidden="true">◀</span>Main index</a>
+  <a class="cm-navlink" href="https://magickmica.github.io/aliens/newsstand.html"><span aria-hidden="true">◀</span>Newsstand</a>
+</nav>
+
 <!-- HEADER -->
 <header>
   <span class="presents-label">Sacred Mini Articles · Digital Collection</span>
@@ -476,6 +499,8 @@ footer{
   <div class="footer-tagline"><span>✦</span> Where Magic Meets the Pixel <span>✦</span></div>
   <div class="footer-divider"><span>· · · · ·</span></div>
   <div class="footer-links">
+    <a class="footer-link sub" href="https://magickmica.github.io/">main index</a>
+    <a class="footer-link sub" href="https://magickmica.github.io/aliens/newsstand.html">the newsstand</a>
     <a class="footer-link sub" href="https://substack.com/@magickmica" target="_blank" rel="noopener">substack.com/@magickmica</a>
     <a class="footer-link store" href="https://www.themysticalspiralstore.com/" target="_blank" rel="noopener">check out &nbsp;<strong>themysticalspiralstore.com</strong></a>
   </div>
