@@ -1,575 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magick Mica TV — All Transmissions</title>
-<meta name="description" content="Where Magic Meets the Pixel — the official hub for Magick Mica TV broadcasts, stories, and the Mystical Spiral Store.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Magick Mica TV — Sacred Mini Articles</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital@0;1&family=VT323&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
-  :root {
-    --pink:   #ff2d9b;
-    --cyan:   #00f0ff;
-    --lime:   #a3ff57;
-    --purple: #c084fc;
-    --gold:   #ffd250;
-    --teal:   #00c8b4;
-    --deep:   #07000f;
-    --surface: rgba(255,255,255,0.03);
-    --border:  rgba(255,255,255,0.07);
-  }
+:root{
+  --bg:#05030e;
+  --text:#f5f0ff;
+  --muted:#6a6080;
+}
 
-  html { scroll-behavior: smooth; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-  body {
-    min-height: 100vh;
-    background: var(--deep);
-    color: #fff;
-    font-family: 'Space Mono', monospace;
-    overflow-x: hidden;
-  }
+/* nebula bg */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(155,111,255,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 80%, rgba(255,110,180,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(0,212,200,0.04) 0%,transparent 60%),
+    radial-gradient(1px 1px at 8%  15%, rgba(255,255,255,0.7) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 72%, rgba(200,170,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 38% 28%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 85%, rgba(0,240,255,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 68% 18%, rgba(255,200,71,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 80% 55%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 92% 35%, rgba(200,170,255,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 14% 45%, rgba(255,110,180,0.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 44% 62%, rgba(255,255,255,0.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 73% 90%, rgba(255,200,71,0.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 30% 10%, rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 62% 42%, rgba(0,240,255,0.35) 0%,transparent 100%);
+  pointer-events:none;z-index:0;
+}
 
-  /* ── canvas bg ── */
-  #bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+/* ── HEADER ── */
+header{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:5rem 2rem 3rem;
+}
 
-  /* ── grain ── */
-  body::after {
-    content: '';
-    position: fixed; inset: 0; z-index: 1; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.35; mix-blend-mode: overlay;
-  }
+.presents-label{
+  font-family:'Space Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;
+  color:rgba(200,180,255,0.4);
+  margin-bottom:0.75rem;display:block;
+}
 
-  /* ── layout wrapper ── */
-  .page { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+.brand-name{
+  font-family:'VT323',monospace;
+  font-size:clamp(3.5rem,8vw,6.5rem);
+  letter-spacing:0.12em;
+  line-height:1;
+  background:linear-gradient(90deg,#ff2d9b,#c084fc,#a3ff57,#00f0ff,#ff2d9b);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 4s linear infinite;
+  margin-bottom:0.2rem;
+}
+@keyframes shimmer{to{background-position:300% center;}}
 
-  /* ══════════════════════════════
-     HERO
-  ══════════════════════════════ */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3.5rem 0 2.5rem;
-    text-align: center;
-    position: relative;
-  }
+.presents-word{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:clamp(1.5rem,3.5vw,2.5rem);
+  color:rgba(200,170,255,0.5);
+  letter-spacing:0.15em;
+  margin-bottom:2rem;
+  display:block;
+}
 
-  /* live badge */
-  .live-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.5rem;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: rgba(163,255,87,0.7);
-    background: rgba(163,255,87,0.06);
-    border: 1px solid rgba(163,255,87,0.2);
-    border-radius: 100px;
-    padding: 0.3rem 0.85rem;
-    margin-bottom: 1.6rem;
-  }
-  .live-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--lime);
-    box-shadow: 0 0 8px var(--lime);
-    animation: pulse 1.6s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.4; transform: scale(0.7); }
-  }
+/* big collection title */
+.collection-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.5rem,8vw,7.5rem);
+  font-weight:900;
+  line-height:0.9;
+  background:linear-gradient(135deg,#f0eaff 0%,#c9aaff 30%,#ffb3d9 65%,#f0eaff 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:0.5rem;
+}
 
-  /* TV icon */
-  .hero-tv {
-    font-size: 3.2rem;
-    margin-bottom: 0.6rem;
-    display: block;
-    animation: tvFloat 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 12px rgba(192,84,252,0.5));
-  }
-  @keyframes tvFloat {
-    0%,100% { transform: translateY(0); filter: drop-shadow(0 0 10px rgba(255,45,155,0.5)); }
-    50%      { transform: translateY(-8px); filter: drop-shadow(0 0 18px rgba(0,240,255,0.5)); }
-  }
+.collection-sub{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:clamp(1.4rem,2.8vw,2.2rem);
+  color:rgba(200,170,255,0.45);
+  letter-spacing:0.08em;
+  margin-bottom:1.75rem;
+}
 
-  /* logo */
-  .hero-title {
-    font-family: 'VT323', monospace;
-    font-size: clamp(3rem, 10vw, 5.5rem);
-    letter-spacing: 0.1em;
-    line-height: 1;
-    background: linear-gradient(90deg, var(--pink), var(--purple), var(--lime), var(--cyan), var(--pink));
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s linear infinite;
-    margin-bottom: 0.4rem;
-  }
-  @keyframes shimmer { to { background-position: 300% center; } }
+.collection-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.3rem;line-height:1.75;
+  color:rgba(245,240,255,0.45);
+  max-width:520px;margin:0 auto 2rem;
+}
 
-  .hero-tagline {
-    font-size: 0.55rem;
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    color: rgba(200,180,255,0.4);
-    margin-bottom: 1rem;
-  }
-  .hero-tagline em {
-    color: rgba(163,255,87,0.6);
-    font-style: normal;
-    margin: 0 0.3rem;
-  }
+/* header divider */
+.h-divider{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin-bottom:0;
+}
+.h-divider::before{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(155,111,255,0.4));}
+.h-divider::after {content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,rgba(255,110,180,0.4),transparent);}
+.h-divider span{font-size:0.8rem;color:rgba(200,170,255,0.35);}
 
-  .hero-divider {
-    width: 100%;
-    max-width: 420px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(192,84,252,0.4), rgba(0,240,255,0.4), transparent);
-    margin: 0.5rem auto 0;
-  }
+/* ── STATS STRIP ── */
+.strip{
+  position:relative;z-index:1;
+  display:flex;justify-content:center;gap:4rem;
+  padding:1.75rem 2rem;
+  border-top:1px solid rgba(255,255,255,0.04);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  margin-top:2.5rem;
+}
+.strip-num{
+  font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1;
+  background:linear-gradient(135deg,#c9aaff,#ffb3d9);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.strip-label{
+  font-family:'Space Mono',monospace;font-size:0.52rem;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--muted);margin-top:0.25rem;
+}
+.strip-item{text-align:center;}
 
-  /* ══════════════════════════════
-     SECTION LABELS
-  ══════════════════════════════ */
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin: 2.8rem 0 1.1rem;
-  }
-  .section-label span {
-    font-size: 0.48rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: rgba(200,180,255,0.35);
-    white-space: nowrap;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(180,100,255,0.2), transparent);
-  }
+/* ── SECTION ── */
+.section{
+  position:relative;z-index:1;
+  max-width:1160px;margin:0 auto;
+  padding:3.5rem 1.5rem 1rem;
+}
+.section-heading{
+  font-family:'Space Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:rgba(200,170,255,0.3);
+  text-align:center;margin-bottom:2.5rem;
+}
 
-  /* ══════════════════════════════
-     FEATURED CARD
-  ══════════════════════════════ */
-  .card-featured {
-    display: block;
-    text-decoration: none;
-    position: relative;
-    border-radius: 14px;
-    border: 1px solid rgba(163,255,87,0.18);
-    background: linear-gradient(135deg, rgba(163,255,87,0.05) 0%, rgba(0,0,0,0) 60%);
-    overflow: hidden;
-    padding: 2rem 2rem 1.75rem;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  }
-  .card-featured::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(163,255,87,0.5), rgba(0,240,255,0.4), transparent);
-  }
-  .card-featured:hover {
-    transform: translateY(-3px);
-    border-color: rgba(163,255,87,0.45);
-    box-shadow: 0 8px 40px rgba(163,255,87,0.1), 0 2px 12px rgba(0,0,0,0.4);
-  }
-  .card-featured .card-eyebrow {
-    font-size: 0.48rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--lime);
-    margin-bottom: 0.6rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .card-featured .card-eyebrow::before {
-    content: '';
-    width: 20px; height: 1px;
-    background: var(--lime);
-    opacity: 0.5;
-  }
-  .card-featured .card-title {
-    font-family: 'VT323', monospace;
-    font-size: clamp(2rem, 6vw, 2.8rem);
-    letter-spacing: 0.06em;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 0.6rem;
-  }
-  .card-featured .card-desc {
-    font-size: 0.55rem;
-    line-height: 1.9;
-    color: rgba(200,180,255,0.5);
-    max-width: 520px;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.2rem;
-  }
-  .card-featured .card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--lime);
-    transition: gap 0.18s;
-  }
-  .card-featured:hover .card-cta { gap: 0.8rem; }
-  .card-featured .card-emoji {
-    position: absolute;
-    right: 1.75rem; top: 50%;
-    transform: translateY(-50%);
-    font-size: 4rem;
-    opacity: 0.12;
-    pointer-events: none;
-    transition: opacity 0.22s, transform 0.22s;
-  }
-  .card-featured:hover .card-emoji { opacity: 0.2; transform: translateY(-50%) scale(1.08); }
+/* ── MAGAZINE SHELF ── */
+.shelf{
+  position:relative;z-index:1;
+  max-width:1160px;margin:0 auto;
+  padding:0 1.5rem 4rem;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2rem;
+  align-items:start;
+}
+@media(max-width:960px){.shelf{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.shelf{grid-template-columns:1fr 1fr;gap:1rem;}}
 
-  /* ══════════════════════════════
-     CARD GRID
-  ══════════════════════════════ */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0.9rem;
-  }
+/* ── ISSUE CARD ── */
+.issue{
+  display:block;text-decoration:none;color:inherit;
+  position:relative;
+  transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.issue:hover{transform:translateY(-10px) rotate(-0.75deg);}
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    border-radius: 12px;
-    border: 1px solid var(--card-border, rgba(255,255,255,0.07));
-    background: var(--card-bg, rgba(255,255,255,0.02));
-    padding: 1.4rem 1.4rem 1.25rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--card-glow, transparent);
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .card:hover { transform: translateY(-3px); }
-  .card:hover::before { opacity: 1; }
+.cover-wrap{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 10px 50px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+  transition:box-shadow 0.4s;
+}
+.issue:hover .cover-wrap{box-shadow:0 25px 70px rgba(0,0,0,0.75), 0 5px 20px rgba(0,0,0,0.5);}
 
-  .card-icon { font-size: 1.6rem; margin-bottom: 0.75rem; line-height: 1; }
-  .card-name {
-    font-family: 'VT323', monospace;
-    font-size: 1.35rem;
-    letter-spacing: 0.08em;
-    line-height: 1.1;
-    color: var(--card-color, #fff);
-    margin-bottom: 0.35rem;
-  }
-  .card-hint {
-    font-size: 0.48rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--card-muted, rgba(200,180,255,0.3));
-    margin-bottom: auto;
-    padding-bottom: 1rem;
-    line-height: 1.8;
-  }
-  .card-link-label {
-    font-size: 0.45rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--card-color, rgba(200,180,255,0.4));
-    opacity: 0.5;
-    transition: opacity 0.18s;
-  }
-  .card:hover .card-link-label { opacity: 1; }
+.cover-bar{height:3px;width:100%;}
 
-  /* color variants */
-  .card.v-purple {
-    --card-bg: rgba(192,84,252,0.05);
-    --card-border: rgba(192,84,252,0.18);
-    --card-color: var(--purple);
-    --card-muted: rgba(192,84,252,0.4);
-    --card-glow: linear-gradient(135deg, rgba(192,84,252,0.06), transparent);
-  }
-  .card.v-purple:hover { border-color: rgba(192,84,252,0.45); box-shadow: 0 6px 30px rgba(192,84,252,0.1); }
+.cover-img{
+  display:block;width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  transition:transform 0.5s;
+}
+.issue:hover .cover-img{transform:scale(1.04);}
 
-  .card.v-gold {
-    --card-bg: rgba(255,210,80,0.04);
-    --card-border: rgba(255,210,80,0.18);
-    --card-color: var(--gold);
-    --card-muted: rgba(255,210,80,0.4);
-    --card-glow: linear-gradient(135deg, rgba(255,210,80,0.05), transparent);
-  }
-  .card.v-gold:hover { border-color: rgba(255,210,80,0.45); box-shadow: 0 6px 30px rgba(255,210,80,0.1); }
+/* hover overlay */
+.cover-overlay{
+  position:absolute;inset:0;
+  opacity:0;transition:opacity 0.35s;
+  display:flex;align-items:flex-end;padding:1rem;
+  background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 60%);
+}
+.issue:hover .cover-overlay{opacity:1;}
+.overlay-btn{
+  font-family:'Space Mono',monospace;
+  font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;
+  padding:0.45rem 0.9rem;
+  border:1px solid rgba(255,255,255,0.55);
+  color:#fff;background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(4px);
+  width:100%;text-align:center;
+}
 
-  .card.v-teal {
-    --card-bg: rgba(0,200,180,0.04);
-    --card-border: rgba(0,200,180,0.18);
-    --card-color: var(--teal);
-    --card-muted: rgba(0,200,180,0.4);
-    --card-glow: linear-gradient(135deg, rgba(0,200,180,0.05), transparent);
-  }
-  .card.v-teal:hover { border-color: rgba(0,200,180,0.45); box-shadow: 0 6px 30px rgba(0,200,180,0.1); }
+/* info */
+.issue-info{padding:0.85rem 0.2rem 0;}
+.issue-num{
+  font-family:'Space Mono',monospace;font-size:0.58rem;
+  letter-spacing:0.22em;text-transform:uppercase;
+  display:block;margin-bottom:0.3rem;
+}
+.issue-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.2rem,2.2vw,1.6rem);
+  font-weight:900;line-height:1.1;margin-bottom:0.15rem;
+}
+.issue-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:0.95rem;
+  opacity:0.45;margin-bottom:0.6rem;
+}
+.issue-topics{display:flex;flex-wrap:wrap;gap:0.25rem;margin-bottom:0.65rem;}
+.topic{
+  font-family:'Space Mono',monospace;font-size:0.52rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.15rem 0.4rem;border:1px solid;opacity:0.45;
+}
+.read-link{
+  font-family:'Space Mono',monospace;font-size:0.62rem;
+  letter-spacing:0.15em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:0.35rem;
+  opacity:0.55;transition:opacity 0.2s;text-decoration:none;color:inherit;
+}
+.issue:hover .read-link{opacity:1;}
+.read-link::after{content:'→';}
 
-  .card.v-cyan {
-    --card-bg: rgba(0,240,255,0.04);
-    --card-border: rgba(0,240,255,0.15);
-    --card-color: var(--cyan);
-    --card-muted: rgba(0,240,255,0.4);
-    --card-glow: linear-gradient(135deg, rgba(0,240,255,0.05), transparent);
-  }
-  .card.v-cyan:hover { border-color: rgba(0,240,255,0.45); box-shadow: 0 6px 30px rgba(0,240,255,0.1); }
+/* ── COLOUR THEMES ── */
+.i-cleo .cover-bar{background:linear-gradient(90deg,#c9a84c,#ff2d78);}
+.i-cleo:hover .cover-wrap{box-shadow:0 25px 70px rgba(201,168,76,0.3),0 5px 20px rgba(0,0,0,0.5);}
+.i-cleo .cover-overlay{background:linear-gradient(to top,rgba(10,5,0,0.88),transparent 60%);}
+.i-cleo .issue-num{color:#c9a84c;}
+.i-cleo .issue-title{background:linear-gradient(135deg,#f0d080,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.i-cleo .topic{color:#c9a84c;border-color:rgba(201,168,76,0.3);}
+.i-cleo .read-link{color:#c9a84c;}
 
-  .card.v-pink {
-    --card-bg: rgba(255,45,155,0.04);
-    --card-border: rgba(255,45,155,0.18);
-    --card-color: var(--pink);
-    --card-muted: rgba(255,45,155,0.4);
-    --card-glow: linear-gradient(135deg, rgba(255,45,155,0.05), transparent);
-  }
-  .card.v-pink:hover { border-color: rgba(255,45,155,0.45); box-shadow: 0 6px 30px rgba(255,45,155,0.1); }
+.i-pyramid .cover-bar{background:linear-gradient(90deg,#ff9500,#9b30ff);}
+.i-pyramid:hover .cover-wrap{box-shadow:0 25px 70px rgba(255,149,0,0.28),0 5px 20px rgba(0,0,0,0.5);}
+.i-pyramid .cover-overlay{background:linear-gradient(to top,rgba(8,3,0,0.88),transparent 60%);}
+.i-pyramid .issue-num{color:#ff9500;}
+.i-pyramid .issue-title{background:linear-gradient(135deg,#ffd060,#ff9500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.i-pyramid .topic{color:#ff9500;border-color:rgba(255,149,0,0.3);}
+.i-pyramid .read-link{color:#ff9500;}
 
-  /* external badge */
-  .ext-badge {
-    position: absolute;
-    top: 0.85rem; right: 0.85rem;
-    font-size: 0.42rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(200,180,255,0.25);
-    border: 1px solid rgba(200,180,255,0.12);
-    border-radius: 4px;
-    padding: 0.15rem 0.4rem;
-  }
+.i-galactic .cover-bar{background:linear-gradient(90deg,#ff2d9b,#00f0ff);}
+.i-galactic:hover .cover-wrap{box-shadow:0 25px 70px rgba(255,45,155,0.28),0 5px 20px rgba(0,0,0,0.5);}
+.i-galactic .cover-overlay{background:linear-gradient(to top,rgba(6,2,15,0.88),transparent 60%);}
+.i-galactic .issue-num{color:#ff2d9b;}
+.i-galactic .issue-title{background:linear-gradient(135deg,#ff80c8,#ff2d9b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.i-galactic .topic{color:#ff2d9b;border-color:rgba(255,45,155,0.3);}
+.i-galactic .read-link{color:#ff2d9b;}
 
-  /* ══════════════════════════════
-     FOOTER
-  ══════════════════════════════ */
-  .hub-footer {
-    margin-top: 4rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    text-align: center;
-  }
-  .footer-brand {
-    font-family: 'VT323', monospace;
-    font-size: 1.1rem;
-    letter-spacing: 0.2em;
-    background: linear-gradient(90deg, var(--pink), var(--purple), var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .footer-copy {
-    font-size: 0.43rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(200,180,255,0.18);
-  }
-  .footer-404 {
-    font-size: 0.43rem;
-    letter-spacing: 0.2em;
-    color: rgba(200,180,255,0.2);
-    margin-top: 0.2rem;
-  }
-  .footer-404 a {
-    color: rgba(192,84,252,0.4);
-    text-decoration: none;
-    transition: color 0.18s;
-  }
-  .footer-404 a:hover { color: var(--purple); }
+.i-luminous .cover-bar{background:linear-gradient(90deg,#9b6fff,#ff6eb4);}
+.i-luminous:hover .cover-wrap{box-shadow:0 25px 70px rgba(155,111,255,0.3),0 5px 20px rgba(0,0,0,0.5);}
+.i-luminous .cover-overlay{background:linear-gradient(to top,rgba(7,4,15,0.88),transparent 60%);}
+.i-luminous .issue-num{color:#9b6fff;}
+.i-luminous .issue-title{background:linear-gradient(135deg,#c9aaff,#9b6fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.i-luminous .topic{color:#9b6fff;border-color:rgba(155,111,255,0.3);}
+.i-luminous .read-link{color:#9b6fff;}
 
-  /* ── floating particles ── */
-  .particle {
-    position: fixed; pointer-events: none; z-index: 0;
-    border-radius: 50%;
-    animation: drift linear infinite;
-    opacity: 0;
-  }
-  @keyframes drift {
-    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    5%   { opacity: 1; }
-    95%  { opacity: 0.3; }
-    100% { transform: translateY(-30px) rotate(540deg); opacity: 0; }
-  }
+/* ── COMING SOON ── */
+.coming{
+  position:relative;z-index:1;
+  text-align:center;padding:1.5rem 2rem 3rem;
+}
+.coming p{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.coming h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-style:italic;background:linear-gradient(90deg,rgba(245,240,255,0.2),rgba(245,240,255,0.5),rgba(245,240,255,0.2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-  /* ── responsive ── */
-  @media (max-width: 520px) {
-    .card-featured { padding: 1.4rem 1.25rem; }
-    .card-featured .card-emoji { display: none; }
-    .hero-title { letter-spacing: 0.04em; }
-  }
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid rgba(255,255,255,0.05);
+  padding:3rem 1.5rem 2.5rem;
+  text-align:center;
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-  }
+.footer-tv{
+  display:inline-block;
+  font-size:2.2rem;
+  margin-bottom:0.75rem;
+  animation:tvglow 2.5s ease-in-out infinite alternate;
+}
+@keyframes tvglow{
+  from{filter:drop-shadow(0 0 4px #ff2d9b) drop-shadow(0 0 8px rgba(255,45,155,0.4));}
+  to  {filter:drop-shadow(0 0 8px #00f0ff) drop-shadow(0 0 16px rgba(0,240,255,0.4));}
+}
+
+.footer-brand{
+  font-family:'VT323',monospace;
+  font-size:clamp(2.2rem,6vw,3.5rem);
+  letter-spacing:0.12em;line-height:1;
+  background:linear-gradient(90deg,#ff2d9b,#c084fc,#a3ff57,#00f0ff,#ff2d9b);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 4s linear infinite;
+  margin-bottom:0.3rem;
+}
+
+.footer-tagline{
+  font-family:'Space Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(200,180,255,0.4);margin-bottom:1.25rem;
+}
+.footer-tagline span{color:rgba(163,255,87,0.55);margin:0 0.4rem;}
+
+.footer-divider{
+  display:flex;align-items:center;justify-content:center;gap:0.75rem;
+  margin-bottom:1.1rem;
+}
+.footer-divider::before{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(155,111,255,0.35));}
+.footer-divider::after {content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,rgba(0,240,255,0.35),transparent);}
+.footer-divider span{font-size:0.55rem;color:rgba(200,180,255,0.25);letter-spacing:0.3em;}
+
+.footer-links{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:0.5rem 2rem;
+  margin-bottom:1.1rem;
+}
+.footer-link{
+  text-decoration:none;
+  font-family:'Space Mono',monospace;
+  font-size:0.75rem;letter-spacing:0.14em;
+  display:inline-flex;align-items:center;gap:0.4rem;
+  transition:opacity 0.2s;
+}
+.footer-link:hover{opacity:0.65;}
+.footer-link.sub{color:#c084fc;}
+.footer-link.sub::before{content:'↗';color:#a3ff57;font-size:0.8rem;}
+.footer-link.store{color:rgba(200,180,255,0.4);font-size:0.55rem;}
+.footer-link.store strong{color:#00f0ff;font-weight:400;}
+
+.footer-copy{
+  font-family:'Space Mono',monospace;font-size:0.45rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(200,180,255,0.18);
+}
 </style>
 </head>
 <body>
 
-<canvas id="bg"></canvas>
+<!-- HEADER -->
+<header>
+  <span class="presents-label">Sacred Mini Articles · Digital Collection</span>
+  <div class="brand-name">Magick Mica TV</div>
+  <span class="presents-word">presents</span>
+  <div class="collection-title">The Cosmic</div>
+  <div class="collection-title" style="margin-top:-0.2rem;">Collection</div>
+  <div class="collection-sub">Four Issues · Infinite Frequency</div>
+  <p class="collection-desc">Ancient wisdom, divine feminine power, cosmic architecture, and the luminous future — all in one sacred mini article collection.</p>
+  <div class="h-divider"><span>✦</span></div>
+</header>
 
-<div class="page">
+<!-- STATS -->
+<div class="strip">
+  <div class="strip-item"><div class="strip-num">4</div><div class="strip-label">Issues</div></div>
+  <div class="strip-item"><div class="strip-num">30+</div><div class="strip-label">Mini Articles</div></div>
+  <div class="strip-item"><div class="strip-num">∞</div><div class="strip-label">Frequency</div></div>
+</div>
 
-  <!-- ── HERO ── -->
-  <header class="hero">
-    <div class="live-badge">
-      <span class="live-dot"></span>
-      Now Broadcasting
+<!-- SECTION LABEL -->
+<div class="section">
+  <p class="section-heading">Browse the Collection &nbsp;·&nbsp; Hover to Explore</p>
+</div>
+
+<!-- SHELF -->
+<div class="shelf">
+
+  <!-- CLEOPATRA -->
+  <a class="issue i-cleo" href="cleopatras-dream-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-cleopatra.png" alt="Cleopatra's Dream"/>
+      <div class="cover-overlay"><span class="overlay-btn">Read Mini Articles →</span></div>
     </div>
-    <span class="hero-tv">📺</span>
-    <h1 class="hero-title">Magick Mica TV</h1>
-    <p class="hero-tagline"><em>✦</em> Where Magic Meets the Pixel <em>✦</em></p>
-    <div class="hero-divider"></div>
-  </header>
-
-  <!-- ── FEATURED ── -->
-  <div class="section-label"><span>Featured Transmission</span></div>
-
-  <a class="card-featured" href="https://magickmica.github.io/alice/wonderland-weekly-expanded.html">
-    <div class="card-eyebrow">Main Broadcast</div>
-    <div class="card-title">Wonderland Weekly</div>
-    <div class="card-desc">The flagship transmission — where Alice goes deeper, the rabbit hole gets stranger, and the weekly broadcast never quite looks the same twice.</div>
-    <div class="card-cta">Enter the broadcast <span>→</span></div>
-    <div class="card-emoji">🐇</div>
+    <div class="issue-info">
+      <span class="issue-num">Y3K · Issue 777 · 2026</span>
+      <div class="issue-title">Cleopatra's Dream</div>
+      <div class="issue-sub">A Y3K Queen's Reality Is Her Greatest Fantasy</div>
+      <div class="issue-topics">
+        <span class="topic">Divine Feminine</span>
+        <span class="topic">Gold & Glitch</span>
+        <span class="topic">The Original Icon</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
   </a>
 
-  <!-- ── CHANNELS ── -->
-  <div class="section-label"><span>All Channels</span></div>
+  <!-- PYRAMID -->
+  <a class="issue i-pyramid" href="pyramid-mystery-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-pyramid.png" alt="Pyramid Mystery"/>
+      <div class="cover-overlay"><span class="overlay-btn">Read Mini Articles →</span></div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Issue 444 · June 2222</span>
+      <div class="issue-title">Pyramid Mystery</div>
+      <div class="issue-sub">Hidden Knowledge · Lost Civilizations</div>
+      <div class="issue-topics">
+        <span class="topic">Sacred Geometry</span>
+        <span class="topic">The Sphinx</span>
+        <span class="topic">Sound Healing</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
 
-  <div class="card-grid">
+  <!-- GALACTIC -->
+  <a class="issue i-galactic" href="galactic-goddess-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-galactic.png" alt="Galactic Goddess"/>
+      <div class="cover-overlay"><span class="overlay-btn">Read Mini Articles →</span></div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Y2K Edition · Issue 444</span>
+      <div class="issue-title">Galactic Goddess</div>
+      <div class="issue-sub">Awaken · Align · Ascend</div>
+      <div class="issue-topics">
+        <span class="topic">You Are Starlight</span>
+        <span class="topic">UFO Files</span>
+        <span class="topic">5D & Beyond</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
 
-    <a class="card v-gold" href="https://magickmica.github.io/alice/alice-ufo-message.html">
-      <span class="card-icon">🛸</span>
-      <div class="card-name">Alice — UFO Message</div>
-      <div class="card-hint">Signals from beyond the looking glass. Transmissions that came from somewhere else entirely.</div>
-      <div class="card-link-label">Open channel →</div>
-    </a>
+  <!-- LUMINOUS -->
+  <a class="issue i-luminous" href="luminous-soul-articles.html">
+    <div class="cover-wrap">
+      <div class="cover-bar"></div>
+      <img class="cover-img" src="cover-luminous.png" alt="Luminous Soul"/>
+      <div class="cover-overlay"><span class="overlay-btn">Read Mini Articles →</span></div>
+    </div>
+    <div class="issue-info">
+      <span class="issue-num">Issue 24 · July 2026</span>
+      <div class="issue-title">Luminous Soul</div>
+      <div class="issue-sub">Elevate · Empower · Evolve</div>
+      <div class="issue-topics">
+        <span class="topic">I Am the Future</span>
+        <span class="topic">Beyond the Veil</span>
+        <span class="topic">You Are the Magic</span>
+      </div>
+      <span class="read-link">Read Mini Articles</span>
+    </div>
+  </a>
 
-    <a class="card v-purple" href="https://magickmica.github.io/mags/mags/index.html">
-      <span class="card-icon">✨</span>
-      <div class="card-name">Mags</div>
-      <div class="card-hint">The hub within the hub. Stories, moments, and magic gathered in one place.</div>
-      <div class="card-link-label">Tune in →</div>
-    </a>
+</div>
 
-    <a class="card v-teal" href="https://magickmica.github.io/mags/mags/rhode-island-beach-life.html">
-      <span class="card-icon">🌊</span>
-      <div class="card-name">Rhode Island Beach Life</div>
-      <div class="card-hint">Salt, sand, and a certain kind of light. The ocean transmissions.</div>
-      <div class="card-link-label">Go there →</div>
-    </a>
+<!-- COMING SOON -->
+<div class="coming">
+  <p>The Collection Continues</p>
+  <h3>More issues awakening soon...</h3>
+</div>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-tv">📺</div>
+  <div class="footer-brand">Magick Mica TV</div>
+  <div class="footer-tagline"><span>✦</span> Where Magic Meets the Pixel <span>✦</span></div>
+  <div class="footer-divider"><span>· · · · ·</span></div>
+  <div class="footer-links">
+    <a class="footer-link sub" href="https://substack.com/@magickmica" target="_blank" rel="noopener">substack.com/@magickmica</a>
+    <a class="footer-link store" href="https://www.themysticalspiralstore.com/" target="_blank" rel="noopener">check out &nbsp;<strong>themysticalspiralstore.com</strong></a>
   </div>
+  <div class="footer-copy">© Magick Mica TV · All Rights Reserved</div>
+</footer>
 
-  <!-- ── EXTENDED UNIVERSE ── -->
-  <div class="section-label"><span>Extended Universe</span></div>
-
-  <div class="card-grid">
-
-    <a class="card v-cyan" href="https://substack.com/@magickmica" target="_blank" rel="noopener">
-      <span class="ext-badge">External ↗</span>
-      <span class="card-icon">📡</span>
-      <div class="card-name">Substack</div>
-      <div class="card-hint">The written word. Subscribe to receive transmissions direct to your inbox.</div>
-      <div class="card-link-label">substack.com/@magickmica</div>
-    </a>
-
-    <a class="card v-pink" href="https://www.themysticalspiralstore.com/" target="_blank" rel="noopener">
-      <span class="ext-badge">External ↗</span>
-      <span class="card-icon">🌀</span>
-      <div class="card-name">Mystical Spiral Store</div>
-      <div class="card-hint">Objects that carry the signal. Curated artifacts for the curious and the cosmic.</div>
-      <div class="card-link-label">themysticalspiralstore.com</div>
-    </a>
-
-  </div>
-
-  <!-- ── FOOTER ── -->
-  <footer class="hub-footer">
-    <div class="footer-brand">Magick Mica TV</div>
-    <div class="footer-copy">© Magick Mica TV · All Transmissions Reserved</div>
-    <div class="footer-404">Lost? <a href="/404.html">That happens here too.</a></div>
-  </footer>
-
-</div><!-- /page -->
-
-<script>
-/* ── starfield ── */
-(function(){
-  const c = document.getElementById('bg');
-  const ctx = c.getContext('2d');
-  let W, H, stars = [];
-  const cols = ['#fff','rgba(192,84,252,0.9)','rgba(0,240,255,0.8)','rgba(255,45,155,0.7)','rgba(163,255,87,0.7)'];
-  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
-  function mkStars(){
-    stars = [];
-    const n = Math.floor((W*H)/3500);
-    for(let i=0;i<n;i++) stars.push({
-      x: Math.random()*W, y: Math.random()*H,
-      r: Math.random()*1.3+0.2,
-      a: Math.random(), da: (Math.random()-0.5)*0.005,
-      col: cols[Math.floor(Math.random()*cols.length)]
-    });
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    /* subtle nebula glow */
-    const g1 = ctx.createRadialGradient(W*0.2, H*0.15, 0, W*0.2, H*0.15, W*0.35);
-    g1.addColorStop(0,'rgba(192,84,252,0.04)'); g1.addColorStop(1,'transparent');
-    ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
-    const g2 = ctx.createRadialGradient(W*0.8, H*0.6, 0, W*0.8, H*0.6, W*0.3);
-    g2.addColorStop(0,'rgba(0,240,255,0.03)'); g2.addColorStop(1,'transparent');
-    ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
-    stars.forEach(s=>{
-      s.a += s.da;
-      if(s.a<=0||s.a>=1) s.da*=-1;
-      ctx.globalAlpha = s.a * 0.9;
-      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle = s.col; ctx.fill();
-    });
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(draw);
-  }
-  resize(); mkStars(); draw();
-  window.addEventListener('resize',()=>{ resize(); mkStars(); });
-})();
-
-/* ── floating particles ── */
-(function(){
-  const cols=['rgba(255,45,155,0.5)','rgba(0,240,255,0.4)','rgba(163,255,87,0.4)','rgba(192,84,252,0.5)','rgba(255,210,80,0.4)'];
-  for(let i=0;i<20;i++){
-    const p = document.createElement('div');
-    p.className='particle';
-    const sz = Math.random()*3+1.5;
-    p.style.cssText=[
-      `width:${sz}px`,`height:${sz}px`,
-      `background:${cols[Math.floor(Math.random()*cols.length)]}`,
-      `left:${Math.random()*100}vw`,
-      `animation-duration:${Math.random()*22+14}s`,
-      `animation-delay:${Math.random()*18}s`
-    ].join(';');
-    document.body.appendChild(p);
-  }
-})();
-</script>
 </body>
 </html>
